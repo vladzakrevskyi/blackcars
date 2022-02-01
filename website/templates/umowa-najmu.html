@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block head %}
+{% endblock %}
+{% block title %} {% trans 'BlackCars - Wynajem samochodów klasy premium' %} {% endblock %}
+{% block content %}
+  <section class="section-grey sukcess_reservation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2>{% trans 'Umowa najmu' %}</h2>
+          <p>{% trans 'Umowę najmu zawieraną w naszej wypożyczalni pobierzesz klikając pobierz umowę.' %}</p>
+          <p><a href="{% static 'files/UMOWA-NAJMU_I_PROTOKOL_-_NO_MARKS.pdf' %}" target="_blank">
+            <button class="button_with_fill">{% trans 'Pobierz umowę' %}</button></a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% include 'base/fixed-contact-button.html' %}
+{% endblock %}

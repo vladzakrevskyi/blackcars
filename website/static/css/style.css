@@ -1,0 +1,1699 @@
+/*-----------------------------------------------------------------------------------
+
+	CSS INDEX
+	===================
+	1.Default
+	2.Top Bar
+	3.Navbar
+	4.Banner
+	5.Services 1
+	6.About 1
+	7.Team
+	8.Faq
+	9.Testimonials
+	10.Services 2
+	11.Clients
+	12.Recent Posts
+	13.Footer Top
+	14.About-2
+	15.Portfolio
+	16.Video
+	17.Team 2
+	18.Counter
+	19.Services 3
+	20.Services 3
+	21.Banner 2
+	22.Caption
+	23.About 3
+	24.Counter 2
+	25.Testimonial 2
+	26.About 4
+	27.Contact Info
+	28.Banner Inner
+	29.Contact page
+	30.Contact page
+	31.404
+	32.Comming Soon
+	
+-----------------------------------------------------------------------------------*/
+h1
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: 'Poppins', bold !important;
+    font-style: normal!important;
+
+}
+/*--------------------------------*/
+/*           1.Default
+/*--------------------------------*/
+/*.preloader {*/
+/*    position: fixed;*/
+/*    left: 0px;*/
+/*    top: 0px;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    z-index: 999999;*/
+/*    background-color: #fff;*/
+/*    background-position: center center;*/
+/*    background-repeat: no-repeat;*/
+/*    background-image: url('../images/preloader.gif');*/
+/*}*/
+
+.alignleft {
+    float: left;
+    margin-right: 15px;
+}
+
+.alignright {
+    float: right;
+    margin-left: 15px;
+}
+
+.aligncenter {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+a:focus {
+    outline: 0 solid
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.fix {
+    overflow: hidden
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 15px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: #222;
+    color: #FFFFFF;
+}
+
+a {
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    color: #333;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #242424;
+}
+
+/* Remove Chrome Input Field's Unwanted Yellow Background Color */
+/*input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus {*/
+/*    -webkit-box-shadow: 0 0 0px 1000px white inset !important;*/
+/*}*/
+
+.section-padding {
+    padding: 100px 0 100px 0;
+    overflow: hidden;
+}
+
+.section-padding-ash {
+    background: #f8f7f6;
+    padding: 100px 0 100px 0;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+p {
+    line-height: 26px;
+    color: #777;
+}
+
+section h2 {
+    color: #363636;
+    margin-top: 0px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.btn {
+    border: none;
+    border-radius: 0px;
+    font-weight: 600;
+}
+
+.btn-xl {
+    padding: 15px 30px;
+    margin-left: 11px;
+}
+
+.btn-primary {
+    color: #000;
+    background-color: #d8b074;
+    border-color: #d8b074;
+    /* border-radius: 8px; */
+}
+
+.btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open > .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #696969;
+    border-color: #a41414;
+}
+
+.btn-default {
+    outline: none!important;
+    color: #000;
+    font-family: 'ROBOTO'!important;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: -2px;
+    padding: 11px 47px;
+    /* width: 100%; */
+    background-color: #d8b074;
+    border-color: #d8b074;
+}
+
+.btn-default.active, .btn-default.focus, .btn-default:active, .btn-default:focus, .btn-default:hover, .open > .dropdown-toggle.btn-default {
+    color: #FFF;
+    background-color: #696969;
+    border-color: #696969;
+}
+
+.btn-black {
+    color: #fff;
+    background-color: #212020;
+    border-color: #212020;
+}
+
+.btn-black.active, .btn-black.focus, .btn-black:active, .btn-black:focus, .btn-black:hover, .open > .dropdown-toggle.btn-black {
+    color: #fff;
+    background-color: #363636;
+    border-color: #363636;
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+.no-padding-right {
+    padding-right: 0px;
+}
+
+.no-padding-left {
+    padding-left: 0px;
+}
+
+.hr-left {
+    display: inline-block;
+    width: 84px;
+    background: #d8b074;
+    margin-top: -6px;
+    /* margin-bottom: 50px; */
+    height: 2px;
+}
+
+.hr-center {
+    display: inline-block;
+    width: 70px;
+    background: #db2531;
+    text-align: center;
+    margin: 5px auto 50px auto;
+    height: 2px;
+}
+
+.form-control {
+    border-radius: 0px;
+    /* padding: 30px 30px; */
+}
+
+textarea:hover, input:hover, textarea:active, input:active, textarea:focus, input:focus, button:focus, button:active, button:hover, label:focus, .btn:active, .btn.active {
+    /*outline: 0px !important;*/
+    /*-webkit-appearance: none;*/
+}
+
+/*--------------------------------*/
+/*           2.Top Bar
+/*--------------------------------*/
+.top-bar {
+    background: #1c1c1c;
+    padding: 10px 0;
+}
+
+.top-bar p {
+    color: #b7b7b7;
+    margin: 0px 30px 0 0;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.top-bar p i {
+    color: #d8b074;
+    font-size: 14px;
+    margin: 0 10px 0 0;
+}
+
+.social-cont ul {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    list-style: none;
+}
+
+.social-cont ul li {
+    /* display: inline-block; */
+    width: 30px;
+    height: 30px;
+    margin: 0 3px 0 0;
+    border: 1px solid #d8b074;
+    text-align: center;
+    border-radius: 20px;
+    background: #d8b074;
+}
+
+.social-cont ul li a {
+    color: #FFFFFF;
+    line-height: 26px;
+    font-size: 21px;
+}
+
+.social-cont ul li a:hover {
+    color: #242424;
+}
+
+/*--------------------------------*/
+/*           3.Navbar
+/*--------------------------------*/
+.navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 4px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.navbar-fixed-top .navbar-toggle span {
+    background: #777;
+    border-color: #ddd;
+}
+
+.navbar-default {
+    background: #000000;
+    border: none;
+    border-radius: 0px;
+    padding: 18px 0px 14px 0px;
+    margin-bottom: 0px;
+    text-transform: capitalize;
+    position: fixed;
+    width: 100%;
+    font-size: 14px;
+    z-index: 9999999;
+}
+
+.navbar-default .navbar-nav > li > a {
+    font-weight: bold;
+    font-size: 14px;
+    font-style: normal;
+    width: 100%;
+    text-transform: uppercase;
+    line-height: 16.41px;
+}
+
+.navbar-right {
+    float: right !important;
+    margin-top: 5px;
+}
+
+.navbar-right > li > a {
+    padding: 10px 5px;
+}
+
+.navbar-right > li > a > i {
+    padding: 3px 0px 2px 0px;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    color: #d8b074;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: #d8b074;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a:after {
+    display: block;
+    content: "";
+    background-color: #d8b074;
+    height: 4px;
+    width: 0%;
+    left: 50%;
+    margin-top: 3px;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.navbar-default .navbar-nav > li > a:hover:after {
+    width: 100%%;
+}
+
+.navbar-default .navbar-nav > li > a:focus:after {
+    width: 100%;
+}
+
+.navbar-nav > li > .dropdown-menu {
+    margin-top: 17px;
+    background: #292929;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+    color: #d8b074;
+    background-color: transparent;
+}
+
+.dropdown-menu > li > a {
+    display: block;
+    padding: 12px 20px;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: normal;
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: 600;
+    transition: none;
+}
+
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+    color: #d8b074;
+    text-decoration: none;
+    background-color: #3a3a3a;
+}
+
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+    color: #d8b074;
+    text-decoration: none;
+    background-color: #3a3a3a;
+}
+
+.navbar-fixed-top {
+       background: #000000;
+       border: none;
+       border-radius: 0px;
+       padding: 18px 0px 13px 0px;
+       margin-bottom: 0px;
+       text-transform: uppercase;
+       /* position: fixed; */
+       width: 100%;
+       font-size: 14px;
+       z-index: 9999999;
+}
+
+.navbar-fixed-top .navbar-nav > li > a {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 14px;
+    font-style: normal;
+    width: 84%;
+    text-transform: uppercase;
+    line-height: 16.41px;
+}
+
+.navbar-fixed-top .navbar-nav > .active > a, .navbar-fixed-top .navbar-nav > .active > a:focus, .navbar-fixed-top .navbar-nav > .active > a:hover {
+    color: #d21919;
+    background-color: transparent;
+}
+
+.navbar-fixed-top .navbar-nav > li > a:focus, .navbar-fixed-top .navbar-nav > li > a:hover {
+    color: #d8b074;
+    background-color: transparent;
+}
+
+.navbar-nav > li > a:after {
+    display: block;
+    content: "";
+    background-color: #d8b074;
+    height: 4px;
+    width: 0%;
+    left: 50%;
+    margin-top: 3px;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.navbar-nav > li > a:hover:after {
+    width: 100%;
+}
+
+.navbar-fixed-top .navbar-nav > .open > a, .navbar-fixed-top .navbar-nav > .open > a:focus, .navbar-fixed-top .navbar-nav > .open > a:hover {
+    color: #d8b074;
+    background-color: transparent;
+}
+
+.navbar-fixed-top .navbar-right {
+    margin-right: 0px;
+}
+
+/*Site Search Bar*/
+.popup-box-on {
+    display: block !important;
+}
+
+.off {
+    display: none;
+}
+
+.chat_box .chat_message_wrapper ul.chat_message > li + li {
+    margin-top: 4px;
+}
+
+#search.open {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1, 1);
+}
+
+#search {
+    background-color: #fff;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: all 0.5s ease-in-out 0s;
+    width: 100%;
+    z-index: 2000;
+}
+
+#search .close {
+    color: #be5254;
+    font-size: 40px;
+    opacity: 1;
+    padding: 10px 17px;
+    position: fixed;
+    right: 15px;
+    top: 15px;
+}
+
+button.close {
+    background: transparent none repeat scroll 0 0;
+    border: 0 none;
+    cursor: pointer;
+}
+
+.close {
+    float: right;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 0 1px 0 #fff;
+}
+
+#search input[type="text"] {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    color: #333;
+    font-family: "Open Sans", sans-serif;
+    font-size: 50px;
+    font-weight: 300;
+    margin: -51px auto 0;
+    outline: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+
+#search .btn {
+    left: 50%;
+    margin-top: 60px;
+    padding: 10px 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-brand {
+    background: #fff none repeat scroll 0 0 !important;
+    border-radius: 50px;
+    color: #be5254 !important;
+    height: auto;
+    margin: 3px 0 2px -12px !important;
+    padding: 12px 20px !important;
+}
+
+.btn-lg, .btn-group-lg > .btn {
+    border-radius: 153px;
+    font-size: 29px;
+}
+
+.btn-site {
+    background: #be5254 none repeat scroll 0 0;
+    color: #fff !important;
+}
+
+/*--------------------------------*/
+/*           4.Banner
+/*--------------------------------*/
+.carousel {
+    position: relative;
+    min-height: 100%;
+    text-align: center;
+    color: #000;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.carousel-control.left {
+    background: none;
+    top: 50%;
+    left: 6px;
+}
+
+.carousel-control.right {
+    background: none;
+    top: 50%;
+    right: 0px;
+}
+
+.carousel-inner {
+    height: 100% !important;
+}
+
+.carousel-inner > .item {
+    max-height: 660px;
+}
+
+.carousel-inner > .item > img {
+    /* margin: 0 auto; */
+    /* background-position: center center; */
+    /* background-size: cover; */
+    width: 100%;
+    height: 100%;
+    /* min-height: 81vw; */
+    filter: brightness(0.5);
+}
+
+.carousel-inner > .item > .carousel-caption {
+    top: 25%;
+    bottom: 50%;
+    right: 10%;
+    left: 12%;
+}
+
+.carousel-control {
+    font-size: 43px;
+}
+
+.carousel-inner > .item > .carousel-caption h1 {
+    font-size: 42px;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-weight: 600;
+    color: #FFF;
+    margin-bottom: 30px;
+    text-shadow: none;
+    /* line-height: 1.2; */
+}
+
+.carousel-inner > .item > .carousel-caption h1 span {
+    font-size: 52px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #d21919;
+}
+
+.carousel-inner > .item > .carousel-caption h4 {
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #FFF;
+    margin-bottom: 30px;
+    text-shadow: none;
+    line-height: 1.5;
+    /* text-transform: uppercase; */
+    max-width: 1000px;
+    font-family: 'Roboto'!important;
+}
+
+.carousel-inner > .item > .carousel-caption h4 span {
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #d21919;
+    text-shadow: none;
+    text-transform: uppercase;
+}
+
+/*--------------------------------*/
+/*           5.Services 1
+/*--------------------------------*/
+.services-1-cont {
+    background: #ffffff;
+    padding: 0px;
+    box-shadow: 0px 17px 35px rgba(74, 74, 115, 0.1), 0px 5px 15px rgba(0, 0, 0, 0.07);
+    margin: 15px 0;
+    transition: transform 0.3s ease;
+    transform: translateY(7px);
+}
+
+.services-1-cont:hover {
+    transition: transform 0.3s ease;
+    transform: translateY(-7px);
+}
+
+.services-1-cont-text {
+    padding: 30px;
+}
+
+/*--------------------------------*/
+/*           6.About 1
+/*--------------------------------*/
+.small-images img, #big-image img {
+    margin: 15px 0;
+}
+
+.small-images a, .big-images a {
+    display: inline-block
+}
+
+.small-images a.selected {
+    border: 1px solid red
+}
+
+.about-text-cont {
+    margin: 20px 0 0 0;
+}
+
+/*--------------------------------*/
+/*           7.Team
+/*--------------------------------*/
+.team-cont h4 {
+    margin-top: 20px;
+}
+
+.team-cont h6 {
+    color: #777;
+    font-weight: 400;
+}
+
+/*--------------------------------*/
+/*           8.Faq
+/*--------------------------------*/
+.faq-cont .panel-group .panel {
+    border: 1px solid #f1f1f1;
+    padding: 10px 20px;
+    border-radius: 0px;
+}
+
+.faq-cont .panel-default > .panel-heading {
+    color: #333;
+    background-color: transparent;
+    border-color: #ddd;
+}
+
+.faq-cont .panel-default > .panel-heading + .panel-collapse > .panel-body {
+    border-top-color: #ddd;
+    line-height: 26px;
+    color: #777;
+}
+
+.faq-cont .panel-title > .small, .panel-title > .small > a, .panel-title > a, .panel-title > small, .panel-title > small > a {
+    color: inherit;
+    line-height: 26px;
+    font-weight: 500;
+}
+
+/*--------------------------------*/
+/*           9.Testimonials
+/*--------------------------------*/
+.testimonials-cont {
+    /*box-shadow: 0px 17px 35px rgba(74,74,115,0.1), 0px 5px 15px rgba(0,0,0,0.07);*/
+    -webkit-box-shadow: 0px 0px 115px 19px rgba(236, 236, 236, 1);
+    -moz-box-shadow: 0px 0px 115px 19px rgba(236, 236, 236, 1);
+    box-shadow: 0px 0px 115px 19px rgba(236, 236, 236, 1);
+}
+
+/* Carousel */
+
+#quote-carousel {
+    padding: 0 10px 30px 10px; /* Control buttons  *//* Previous button  *//* Next button  *//* Changes the position of the indicators *//* Changes the color of the indicators */
+}
+
+#quote-carousel .carousel-control {
+    background: none;
+    color: #CACACA;
+    font-size: 2.3em;
+    text-shadow: none;
+    margin-top: -50px;
+}
+
+#quote-carousel .carousel-control.left {
+    left: -25px;
+}
+
+#quote-carousel .carousel-control.right {
+    right: -25px;
+}
+
+#quote-carousel .carousel-indicators {
+    right: 50%;
+    top: auto;
+    bottom: 33px;
+    margin-right: -19px;
+}
+
+#quote-carousel .carousel-indicators li {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    cursor: pointer;
+    border: 4px solid #CCC;
+    border-radius: 50px;
+    opacity: 0.4;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+
+#quote-carousel .carousel-indicators .active {
+    background: #333333;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    border-color: #f33;
+    opacity: 1;
+    overflow: hidden;
+}
+
+#quote-carousel .carousel-inner {
+    min-height: 300px;
+}
+
+.item blockquote {
+    border-left: none;
+    margin: 0;
+    padding: 50px 20px;
+}
+
+.item blockquote p {
+    font-size: 14px;
+}
+
+.item blockquote p:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
+
+.item blockquote small {
+    display: block;
+    font-size: 80%;
+    font-weight: 600;
+    line-height: 1.42857143;
+    color: #363636;
+}
+
+/*--------------------------------*/
+/*           10.Services 2
+/*--------------------------------*/
+.services-2-cont {
+    padding: 15px;
+    background: #000;
+    border-radius: 15px;
+    margin: 15px 0px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    transform: translateY(7px);
+    min-height: 271px;
+}
+
+.services-2-cont:hover {
+    transition: transform 0.3s ease;
+    transform: translateY(-7px);
+}
+
+.services-2-cont .fa-circle {
+    color: #d8b074;
+}
+
+/*--------------------------------*/
+/*           11.Clients
+/*--------------------------------*/
+.clients-cont {
+    box-shadow: 0px 17px 35px rgba(74, 74, 115, 0.1), 0px 5px 15px rgba(0, 0, 0, 0.07);
+    padding: 15px;
+    margin: 15px 0px;
+    overflow: hidden;
+    background: #fff;
+    transition: transform 0.3s ease;
+    transform: translateY(7px);
+}
+
+.clients-cont:hover {
+    transition: transform 0.3s ease;
+    transform: translateY(-7px);
+}
+
+.clients-cont img {
+    display: block;
+    margin: 0 auto;
+}
+
+/*--------------------------------*/
+/*           12.Recent Posts
+/*--------------------------------*/
+.blog-post-cont {
+    box-shadow: 0px 17px 35px rgba(74, 74, 115, 0.1), 0px 5px 15px rgba(0, 0, 0, 0.07);
+    margin: 15px 0px;
+    background: #fff;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    transform: translateY(7px);
+}
+
+.blog-post-cont-2 {
+    /* box-shadow: 6px 15px 16px #000; */
+    box-shadow: 0px 17px 36px rgb(74 74 115 / 10%), 0px 5px 15px rgb(0 0 0 / 7%);
+    margin: 15px 0px 45px;
+    background: #fff;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    transform: translateY(7px);
+    border-radius: 14px;
+    margin: 11px;
+}
+
+.blog-post-cont-text {
+    padding: 30px;
+    background-color: #000;
+}
+
+.blog-post-cont:hover {
+    transition: transform 0.3s ease;
+    transform: translateY(-7px);
+}
+
+.blog-post-cont-2:hover {
+    transition: transform 0.3s ease;
+    transform: scale(1.05);
+}
+
+.blog-post-info {
+    font-size: 12px;
+    color: #d8b074!important;
+}
+
+/*sidebar*/
+.blog-item input[type="text"] {
+    padding: 19px 15px;
+    border: 1px solid #ccc;
+    margin: 0 -3px 0 0;
+    color: #777;
+    width: 205px;
+    display: inline-block;
+}
+
+.blog-item button[type="submit"] {
+    background: #d21919;
+    padding: 9px 20px;
+    color: #fff;
+    border-radius: 0px;
+    border: 1px solid #ff5252;
+    margin: 0 0 0 -1px;
+}
+
+.blog-item {
+    overflow: hidden;
+    padding: 20px 0 10px 0;
+}
+
+.blog-item h4 {
+    font-weight: 500;
+}
+
+.blog-item .separator {
+    background: #d21919;
+    width: 100%;
+    height: 1px;
+    margin: 20px 0 20px 0;
+}
+
+.blog-item ul {
+    padding: 0px;
+    list-style-type: none;
+}
+
+.blog-item ul li {
+    margin: 0 0 20px 0;
+}
+
+.blog-item ul li a {
+    color: #363636;
+}
+
+.blog-item ul li a:hover {
+    color: #d21919;
+    text-decoration: none;
+}
+
+.blog-item ul li a i {
+    margin: 0 5px 0 0;
+}
+
+/*comment form*/
+.comment-form-cont {
+    padding: 50px 30px;
+    background: #eee;
+}
+
+.comment-form-cont h3 {
+    margin: 0 0 30px 0;
+}
+
+/*--------------------------------*/
+/*           13.Footer Top
+/*--------------------------------*/
+.footer-top {
+    /* border-top: 0.5px solid #959595; */
+    background: #222222;
+    /* padding: 62px 0 70px; */
+    padding-bottom: 14px;
+    /* padding-left: 15px; */
+    padding-right: 15px;
+    padding-top: 30px;
+    /* border-bottom: 0.5px solid #959595; */
+}
+
+.footer-cont {
+    margin: 0px auto;
+    margin-bottom: 14px;
+    overflow: hidden;
+}
+
+.footer-cont .intro {
+    margin: 27px 0 0 0;
+    font-family: 'Roboto';
+    color: #FFFFFF;
+    font-weight: 500;
+    line-height: 162%;
+    font-size: 14px;
+    font-style: normal;
+    width: 97%;
+}
+
+.footer-cont h4 {
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.footer-cont ul {
+    list-style-type: none;
+    padding: 0px;
+    margin-top: 1px;
+    width: 170px;
+    display: inline-block;
+}
+
+.footer-cont ul li {
+    margin: 10px auto;
+}
+
+.footer-cont ul li i {
+    color: #26ace3;
+    margin: 0 10px 0 0;
+    font-size: 10px
+}
+
+.footer-cont ul li a {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-family: 'Roboto';
+    font-weight: 700;
+    line-height: 16.41px;
+}
+
+.footer-cont ul li a:hover {
+    color: #d8b074;
+    text-decoration: none
+}
+
+.footer-cont a:hover {
+    color: #d8b074;
+    text-decoration: none
+}
+
+/*.footer-cont ul li a:before {*/
+/*    content: "\f054";*/
+/*    font-family: Fontawesome;*/
+/*    float: left;*/
+/*    margin-right: 10px;*/
+/*    color: #d8b074;*/
+/*}*/
+
+.contact-info {
+    color: #fff;
+    margin: 7px 0;
+}
+
+.contact-info i {
+    color: #d8b074;
+    margin: 0 10px 0 0;
+    font-size: 18px;
+}
+
+.footer-bottom {
+    /* background: #0d0d0d; */
+    padding: 11px 0px;
+}
+
+.footer-bottom p {
+    color: #FFFFFF;
+    padding-top: 9px;
+    font-size: 14px;
+}
+
+/*--------------------------------*/
+/*           14.About-2
+/*--------------------------------*/
+.section-about-2 {
+    padding: 100px 0 0 0;
+    overflow: hidden;
+}
+
+/*--------------------------------*/
+/*           15.Portfolio
+/*--------------------------------*/
+.hovereffect {
+    width: 100%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    cursor: default;
+}
+
+.hovereffect .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+.hovereffect img {
+    display: block;
+    position: relative;
+    -webkit-transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in;
+}
+
+.hovereffect:hover img {
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /><feGaussianBlur stdDeviation="3" /></filter></svg>#filter');
+    filter: grayscale(1) blur(3px);
+    -webkit-filter: grayscale(1) blur(3px);
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.hovereffect h2 {
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hovereffect a.info {
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 14px;
+    border: 1px solid #fff;
+    margin: 50px 0 0 0;
+    background-color: transparent;
+}
+
+.hovereffect a.info:hover {
+    box-shadow: 0 0 5px #fff;
+}
+
+.hovereffect a.info, .hovereffect h2 {
+    -webkit-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7);
+    -webkit-transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.hovereffect:hover a.info, .hovereffect:hover h2 {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+/*--------------------------------*/
+/*           16.Video
+/*--------------------------------*/
+.video-cont h2 {
+    color: #fff;
+    text-align: center;
+}
+
+.video-cont p {
+    color: #fff;
+    text-align: center;
+}
+
+.video-cont .icon-cont {
+    margin: 30px auto;
+    width: 43px;
+}
+
+.video-cont .icon-cont a i {
+    color: #d21919;
+    font-size: 48px;
+}
+
+/*--------------------------------*/
+/*           17.Team 2
+/*--------------------------------*/
+.team-2-cont img {
+    transition: transform 0.3s ease;
+    transform: translateY(7px);
+}
+
+.team-2-cont img:hover {
+    transition: transform 0.3s ease;
+    transform: translateY(-7px);
+}
+
+/*--------------------------------*/
+/*           18.Counter
+/*--------------------------------*/
+.counter-cont {
+    background: #fff;
+    padding: 20px 0;
+    margin: 15px auto;
+}
+
+.counter-cont h3 {
+    color: #d21919;
+    text-align: center;
+}
+
+.counter-cont h5 {
+    color: #777;
+    text-align: center;
+    margin: 0px;
+}
+
+/*--------------------------------*/
+/*           19.Services 3
+/*--------------------------------*/
+.services-3-cont {
+    box-shadow: 0px 17px 35px rgba(74, 74, 115, 0.1), 0px 5px 15px rgba(0, 0, 0, 0.07);
+    padding: 30px 15px;
+    background: #fff;
+    margin: 15px 0px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    transform: translateY(7px);
+}
+
+.services-3-cont:hover {
+    transition: transform 0.3s ease;
+    transform: translateY(-7px);
+}
+
+.services-3-cont .fa-circle {
+    color: #db2531
+}
+
+.services-3-cont .pull-left {
+    float: left;
+    margin: 0 15px 50px 0;
+}
+
+.services-3-cont p {
+    margin: 0px;
+}
+
+/*--------------------------------*/
+/*           20.Services 3
+/*--------------------------------*/
+.pricing-cont {
+    -webkit-box-shadow: 0px 0px 115px 19px rgba(236, 236, 236, 1);
+    -moz-box-shadow: 0px 0px 115px 19px rgba(236, 236, 236, 1);
+    box-shadow: 0px 0px 115px 19px rgba(236, 236, 236, 1);
+    padding: 30px 15px;
+    background: #fff;
+    margin: 15px 0px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    transform: translateY(7px);
+    border-radius: 10px;
+    border: 1px solid #dad9d9;
+}
+
+.pricing-cont:hover {
+    transition: transform 0.3s ease;
+    transform: translateY(-7px);
+}
+
+.pricing-cont h5 {
+    color: #777;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.pricing-cont h3 {
+    color: #363636;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.pricing-cont h3 span {
+    color: #d21919;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.pricing-cont p {
+    color: #777;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 30px auto;
+}
+
+/*--------------------------------*/
+/*           21.Banner 2
+/*--------------------------------*/
+.banner-2-cont {
+    padding: 30px 30px;
+}
+
+.banner-2-cont h1 {
+    font-size: 52px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: none;
+}
+
+.banner-2-cont h1 span {
+    font-size: 72px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #d21919;
+}
+
+.banner-2-cont h4 {
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: none;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.banner-2-cont h4 span {
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #d21919;
+    text-shadow: none;
+    text-transform: uppercase;
+}
+
+/*--------------------------------*/
+/*           22.Caption
+/*--------------------------------*/
+.section-caption {
+    background: #000;
+    padding: 30px 0;
+}
+
+.section-caption h3 {
+    color: #fff;
+    margin: 12px 0;
+}
+
+/*--------------------------------*/
+/*           23.About 3
+/*--------------------------------*/
+.about-3-cont {
+    background: #f3f3f3;
+    overflow: hidden;
+}
+
+.about-3-cont-txt {
+    padding: 4px 9%;
+    text-align: center;
+    width: 100%;
+}
+
+.about-3-cont-txt h4 {
+    margin: 50px 0 20px 0;
+}
+
+.about-3-cont-txt ul {
+    padding: 0px;
+    list-style-type: none;
+    display: inline-block;
+}
+
+.about-3-cont-txt ul li {
+    margin: 10px auto;
+    text-align: initial;
+}
+
+.about-3-cont-txt ul li a {
+    color: #bfc1b3;
+    font-size: 14px;
+}
+
+.about-3-cont-txt ul li a:hover {
+    text-decoration: none
+}
+
+.about-3-cont-txt ul li a:before {
+    content: "\f054";
+    font-family: Fontawesome;
+    /* float: left; */
+    margin-right: 10px;
+    color: #bfc1b3;
+}
+
+/*--------------------------------*/
+/*           24.Counter 2
+/*--------------------------------*/
+.counter-2-cont {
+    padding: 30px 0 100px 0;
+}
+
+.counter-2-red-cont {
+    background: #d21919;
+    padding: 50px;
+    overflow: hidden;
+}
+
+.counter-2-black-cont {
+    background: #363636;
+    padding: 50px;
+    overflow: hidden;
+}
+
+.counter-2-black-cont h3, .counter-2-red-cont h3, .counter-2-black-cont h5, .counter-2-red-cont h5 {
+    color: #fff;
+}
+
+/*--------------------------------*/
+/*           25.Testimonial 2
+/*--------------------------------*/
+.testimonials h2 {
+    color: #fff;
+}
+
+.quote {
+    color: rgba(0, 0, 0, .1);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/***********************************************************    Carousel Fade Transition   *****************************************************************************/
+
+
+.testimonials-2-cont #quote-carousel {
+    padding: 0 10px 15px 10px;
+    margin-top: 30px; /* Control buttons  *//* Previous button  *//* Next button  *//* Changes the position of the indicators *//* Changes the color of the indicators */
+}
+
+.testimonials-2-cont #quote-carousel .carousel-inner {
+    min-height: 0px;
+}
+
+.testimonials-2-cont #quote-carousel .carousel-control {
+    background: none;
+    color: #CACACA;
+    font-size: 2.3em;
+    text-shadow: none;
+    margin-top: -115px;
+}
+
+.testimonials-2-cont #quote-carousel .carousel-control.left {
+    left: -10px;
+    top: 140px;
+}
+
+.testimonials-2-cont #quote-carousel .carousel-control.right {
+    right: -10px;
+    top: 140px;
+}
+
+.testimonials-2-cont #quote-carousel .carousel-indicators {
+    right: 50%;
+    top: auto;
+    bottom: 0px;
+    margin-right: -19px;
+}
+
+.testimonials-2-cont #quote-carousel .carousel-indicators li {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 50px;
+    opacity: 0.4;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+
+.testimonials-2-cont #quote-carousel .carousel-indicators .active {
+    background: #333333;
+    width: 128px;
+    height: 128px;
+    border-radius: 100px;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.testimonials-2-cont .carousel-inner {
+    min-height: 300px;
+}
+
+.testimonials-2-cont .item blockquote {
+    border-left: none;
+    margin: 0;
+}
+
+.testimonials-2-cont .item blockquote p {
+    font-size: 14px;
+    color: #ccc;
+    font-style: italic;
+}
+
+.testimonials-2-cont .item blockquote h5 {
+    margin: 34px 0 0 20px;
+    display: inline-block;
+    color: #d21919;
+}
+
+.testimonials-2-cont .item blockquote span {
+    margin: 12px 92px 0 0px;
+    display: inline-block;
+    color: #ddd;
+    text-transform: capitalize;
+    font-size: 11px;
+}
+
+.testimonials-2-cont .item blockquote img {
+    margin: 0 0 18px 0px;
+    display: inline-block;
+}
+
+.testimonials-2-cont .item blockquote p:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
+
+/*--------------------------------*/
+/*           26.About 4
+/*--------------------------------*/
+.about-4-cont {
+    background: #fff;
+    overflow: hidden;
+}
+
+.about-4-cont-txt {
+    padding: 50px 0;
+}
+
+.about-4-cont-txt .btn {
+    margin: 20px 0;
+}
+
+/*--------------------------------*/
+/*           27.Contact Info
+/*--------------------------------*/
+.contact-info-cont {
+    overflow: hidden;
+}
+
+.contact-info-cont p {
+    overflow: hidden;
+    font-weight: 700;
+    color: #777;
+}
+
+.contact-form-cont {
+    padding: 50px 30px;
+    background: #eee;
+}
+
+.contact-form-cont h3 {
+    margin: 0 0 30px 0;
+}
+
+/*--------------------------------*/
+/*           28.Banner Inner
+/*--------------------------------*/
+.inner-header {
+    padding: 50px 0;
+    border-bottom: 1px solid #d8b074!important;
+}
+
+.inner-header h2 {
+    color: #fff;
+    margin: 15px 0 30px;
+}
+
+.inner-header h6, .inner-header h6 a {
+    color: #fff;
+    margin: 12px 0;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.inner-header h6 a:hover {
+    color: #ddd;
+}
+
+/*--------------------------------*/
+/*           29.Contact page
+/*--------------------------------*/
+.form-group-2 {
+    margin-bottom: 30px;
+    margin-right: 15px;
+}
+
+.contact-form {
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 0px 1px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #777;
+    background-color: #fff;
+    background-image: none;
+    border-bottom: 1px solid #ccc;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.form-group-2 textarea {
+    display: block;
+    width: 100%;
+    height: 80px;
+    padding: 50px 1px 0px;
+    font-size: 14px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #777;
+    background-color: #fff;
+    background-image: none;
+    border-bottom: 1px solid #ccc;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+/*--------------------------------*/
+/*           30.Contact page
+/*--------------------------------*/
+.about-5-cont {
+    margin: 30px 0;
+}
+
+.about-5-img-cont {
+    margin: 30px 0;
+}
+
+/*--------------------------------*/
+/*           31.404
+/*--------------------------------*/
+.error-cont {
+    margin: 30px auto;
+}
+
+.error-cont i {
+    color: #d21919;
+    font-size: 165px;
+}
+
+/*--------------------------------*/
+/*           32.Comming Soon
+/*--------------------------------*/
+.cs-cont {
+    padding: 50px 30px;
+    background: #eee;
+}
+
+.cs-cont h1 {
+    margin: 0 0 30px 0;
+}

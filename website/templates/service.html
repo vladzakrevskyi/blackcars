@@ -1,0 +1,169 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block head %}
+  <meta name="description" content="Zapewniamy transfery z i na lotnisko. Wynajmij busa klasy premiuim z szoferem. Samochód do ślubu.">
+{% endblock %}
+{% block title %} {% trans 'Transfery Lotniskowe, Limuzyna z Kierowcą, Samochodów do Ślubu' %} {% endblock %}
+{% block content %}
+  <div class="response">
+    <section class="section-grey our_services services_main">
+      <div class="container">
+        <div class="row">
+          {% if service %}
+            {% for a in service %}
+              {% if a.image %}
+                {% if a.choise == 'Zdjęcie po lewej' %}
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 services service_img_left">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 our_services_img">
+                      {% thumbnail a.image "620x260" as im %}
+                        <img loading="lazy" src="{{ im.url }}" alt="img">
+                      {% endthumbnail %}
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 our_services_title services_text_right">
+                      {% if a.url %}
+                        <a href="{{ a.url }}">
+                          <h3>{{ a.title|safe }}</h3>
+                        </a>
+                      {% else %}
+                        <h3>{{ a.title|safe }}</h3>
+                      {% endif %}
+                      <div class="section-heading-line-left"></div>
+                      <p class="our_service_sub_title_servcie_page">{{ a.desc|safe }}</p>
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 services service_img_right">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 our_services_title services_text_left">
+                      {% if a.url %}
+                        <a href="{{ a.url }}">
+                          <h3>{{ a.title|safe }}</h3>
+                        </a>
+                      {% else %}
+                        <h3>{{ a.title|safe }}</h3>
+                      {% endif %}
+                      <div class="section-heading-line-left"></div>
+                      <p class="our_service_sub_title_servcie_page">{{ a.desc|safe }}</p>
+                       {% if a.url %}
+                        <a href="{{ a.url }}">
+                          <p><strong>{% trans 'Czytaj więcej' %}...</strong></p>
+                        </a>
+                       {% endif %}
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 our_services_img">
+                      {% thumbnail a.image "620x260" as im %}
+                        <img loading="lazy" src="{{ im.url }}" alt="img">
+                      {% endthumbnail %}
+                    </div>
+                  </div>
+                {% endif %}
+              {% else %}
+                <div class="col-xl-7 col-lg-7 col-md-7 text-left">
+                  <h1 class="text-left">{{ a.title|safe }}</h1>
+                  <div class="section-heading-line-left"></div>
+                  <p class="our_service_sub_title_servcie_page desktop-show sub_title_first"
+                     style="margin-bottom: 5%">{{ a.desc|safe }}</p>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            <h1 class="text-center">{% trans 'Jeszcze nie ma artykułów' %}</h1>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    <section class="section-grey pricelist_with_driver">
+      <div class="container">
+        <div class="col-12">
+          <h1 class="title-left-line text-left desktop-show">{% trans 'Cennik wynajmu z szoferem' %}</h1>
+          <h1 class="text-left mobile-show">{% trans 'Cennik wynajmu z szoferem' %}</h1>
+          <div class="section-heading-line-left mobile-show"></div>
+        </div>
+        <div class="col-12" style="padding-top: 3%">
+          <div class="col-xl-7 col-xl-7 col-md-7 service_img">
+            <img loading="lazy" src="{% static 'images/Rectangle 11 (1).jpg' %}">
+          </div>
+          <div class="col-xl-7 col-xl-7 col-md-7 service_img_mobile">
+            <img loading="lazy" src="{% static 'images/Rectangle 111.jpg' %}">
+          </div>
+          <div class="col-xl-5 col-xl-5 col-md-5 col-sm-12 col-xs-12 our_service_table">
+            {% if servicepage %}
+              <div class="col-12">
+                {% for el in servicepage %}
+                  <h1 class="text-left">{{ el.car }}</h1>
+                  <div class="section-heading-line-left"></div>
+                  <table class="table_price_services">
+                    {% for b in el.servicetable.all %}
+                      <tr>
+                        <td>
+                          <h3>{{ b.service_name }}</h3>
+                        </td>
+                        <td>
+                          <h4>{{ b.service_price }}</h4>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </table>
+                {% endfor %}
+              </div>
+            {% else %}
+            {% endif %}
+            <div class="col-12">
+              <h1 class="text-left">{% trans 'Uwagi' %}</h1>
+              <div class="section-heading-line-left"></div>
+              <p>{% trans 'Podane kwoty są cenami brutto.' %} <strong>{% trans 'Zawierają:' %}</strong> {% trans 'koszt wynajmu samochodu z kierowcą, paliwo, chłodne napoje i inne dodatki dla pasażerów.' %}
+                <strong>{% trans 'Nie zawierają:' %}</strong> {% trans 'ewentualnych opłat autostradowych i parkingowych, kosztów zakwaterowania i wyżywienia kierowcy poza granicami Warszawy.' %}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section-grey" style="padding-top: 0;">
+      <div class="text-center contact-title mb-40">
+        <h1>{% trans 'Napisz do nas' %}</h1>
+        <div class="section-heading-line-left"></div>
+        <h4>{% trans 'Lub zadzwoń' %} <a href="tel: +48 720 889 788" class="contact-phone">+48 720 889 788</a></h4>
+      </div>
+      <div class="container pricelist_with_driver">
+        <div class="col-12">
+          <form method="post" id="contact-form">
+            {% csrf_token %}
+            <div class="form-cont">
+              <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                  <div class="form-group-2">
+                    <label for="name">{% trans 'Imię i Nazwisko' %}</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                  <div class="form-group-2">
+                    <label for="phone">{% trans 'Telefon' %}</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                  <div class="form-group-2">
+                    <label for="email">{% trans 'E-mail' %}</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <label for="message">{% trans 'Twoja wiadmość' %}</label>
+                  <textarea class="form-control" id="message" name="message" rows="5"></textarea>
+                </div>
+                <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                  <input type="submit" class="btn btn-primary btn-xl contact_button" value="{% trans 'Wyślij' %}">
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+  {% include 'base/fixed-contact-button.html' %}
+{% endblock %}

@@ -1,0 +1,60 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="shortcut icon" href="#">
+  <link rel="shortcut icon" href="../../static/images/favicon.ico">
+  {% block head %}
+  {% endblock %}
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MB3W9X5');</script>
+  <!-- End Google Tag Manager -->
+
+  {% include "base/css.html" %}
+  <meta name="google-site-verification" content="1Jl8goN2gHnQl8P-9uVgChOcN5Mh29Zw99eWFt6xwR8" />
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB3W9X5"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+{% include "base/header.html" %}
+{% block content %}
+{% endblock %}
+
+<!-- Cookies message START -->
+<div class="alert alert-dismissible text-center cookiealert" role="alert">
+  <div class="cookiealert-container">
+    {% trans 'Na naszej stronie internetowej używamy plików' %} <b>{% trans 'cookies' %}</b>
+    {% trans '(tzw. Ciasteczek), aby poprawiać jakość świadczonych przez nas usług.' %}
+    <br>{% trans 'Kliknięcie przycisku "Zgoda" lub dalsze korzystanie z naszej witryny oznacza, że zgadzasz się na ich użycie.' %}
+    <a href="{% url 'privacy_policy' %}">{% trans 'Czytaj więcej' %}</a>
+    <br>
+    <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">
+      {% trans 'Zgoda' %}
+    </button>
+  </div>
+</div>
+<!-- Cookies message END -->
+
+<!-- Footer START -->
+{% include "base/footer.html" %}
+<!-- Footer END -->
+
+<!-- JS START -->
+{% include "base/js.html" %}
+<!-- JS END -->
+</body>
+</html>

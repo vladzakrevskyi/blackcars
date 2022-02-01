@@ -1,0 +1,150 @@
+{% load static %}
+{% load i18n %}
+
+<section id="footer" class="footer_top">
+  <div class="container">
+    <div class="footer-top">
+      <div class="row">
+        <div class="col-lg-5 col-xl-5 col-sm-5">
+          <div class="footer-cont"><h1>{% trans 'O nas' %}</h1>
+            <p class="intro">
+              {% trans 'Zapewniamy dostęp do bogatej floty różnorodnych samochodów klasy premium. Oferujemy również wiele usług związanych z przewozami autami osobowymi lub busami.' %}<br>
+              {% trans 'Nie ograniczamy się do stałej floty pojazdów i gamy usług – nieustannie się rozwijamy, aby Klient mógł czuć się w pełni usatysfakcjonowany współpracą z naszą wypożyczalnią.' %}
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-xl-2 col-md-2 col-sm-12 footer-section">
+          <div class="footer-cont">
+            <h1>{% trans 'Menu' %}</h1>
+            <ul class="desktop-show">
+              <li><a href="{% url 'our-cars' %}">{% trans 'Nasza flota' %}</a></li>
+              <li><a href="{% url 'service_main' %}">{% trans 'Usługi' %}</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="{% url 'contact' %}">{% trans 'Kontakt' %}</a></li>
+            </ul>
+            <table class="footer_table mobile-show">
+              <tr>
+                <td>
+                  <a href="{% url 'our-cars' %}">{% trans 'Nasza flota' %}</a>
+                </td>
+                <td style="padding-left: 30px">
+                  <a href="{% url 'blog' %}">{% trans 'Blog' %}</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#">{% trans 'Usługi' %}</a>
+                </td>
+                <td style="padding-left: 30px">
+                  <a href="{% url 'contact' %}">{% trans 'Kontakt' %}</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-lg-2 col-xl-2 col-md-2 col-sm-12 footer-section">
+          <div class="footer-cont">
+            <h1>{% trans 'Informacje' %}</h1>
+            <ul class="desktop-show">
+              <li><a href="{% url 'contact' %}">{% trans 'Kontakt' %}</a></li>
+              <li><a href="{% url 'regulations' %}">{% trans 'Regulamin serwisu' %}</a></li>
+              <li><a href="{% url 'privacy_policy' %}">{% trans 'Polityka prywatności' %}</a></li>
+              <li><a href="{% url 'umowa-najmu' %}">{% trans 'Umowa najmu' %}</a></li>
+              <li><a href="{% url 'regulamin-wypozyczalni' %}">{% trans 'Regulamin wynajmu' %}</a></li>
+            </ul>
+            <table class="footer_table mobile-show">
+              <tr>
+                <td>
+                  <a href="{% url 'contact' %}">{% trans 'Kontakt' %}</a>
+                </td>
+                <td style="padding-left: 30px">
+                  <a href="{% url 'privacy_policy' %}">{% trans 'Polityka prywatności' %}</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="{% url 'regulations' %}">{% trans 'Regulamin' %}</a>
+                </td>
+                <td style="padding-left: 30px">
+                  <a href="{% url 'regulations' %}">{% trans 'Regulamin wynajmu' %}</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-lg-2 col-xl-2 col-md-2 col-sm-12 footer-section">
+          <div class="footer-cont">
+            <h1>{% trans 'Kontakt' %}</h1>
+            <div class="contact_sec desktop-show">
+              <a href="tel: +48 720 889 788"><p class="contact-info">+48 720 889 788</p></a>
+              <a href="mailto:office@blackcars.pl "><p class="contact-info">office@blackcars.pl
+              </p></a>
+              <p>{% trans 'Bokserska 64, lok. 124' %},<br>{% trans '02-690 Warszawa' %}</p>
+            </div>
+          </div>
+          <div class="social-cont desktop-show">
+            <ul>
+              <li class="instagram">
+                <a href="https://www.instagram.com/blackcars.pl/" target="_blank" class="tran3s round-border icon">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="facebook">
+                <a href="https://www.facebook.com/blackcarspl/" target="_blank" class="tran3s round-border icon">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="messanger">
+                <a href="https://wa.me/+48720889788" target="_blank" class="tran3s round-border icon">
+                  <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="mobile-show col-sm-12 col-xs-12 kontakt_mobile" style="padding-left: 0;">
+            <div class="col-sm-6 col-xs-6 soc" style="padding-left: 0">
+              <a href="tel: +48 720 889 788"><p class="contact-info">+48 720 889 788</p></a>
+              <a href="mailto:office@blackcars.pl "><p class="contact-info">office@blackcars.pl
+              </p></a>
+            </div>
+            <div class="col-sm-6 col-xs-6 soc social-cont" style="text-align: end;padding-top: 15px;">
+              <ul>
+                <li><a href="https://www.instagram.com/blackcars.pl/" class="tran3s round-border icon">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/blackcarspl/" class="tran3s round-border icon">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://wa.me/+48720889788" class="tran3s round-border icon">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="footer" class="">
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="row">
+        <div class="col-lg-6 col-sm-6 col-xs-9 copyright" style="width: 45%">
+          <p class="text-left">
+            <script>document.write("&copy; " + new Date().getFullYear() + " {% trans 'Wszelkie prawa zastrzeżone.' %} ")</script>
+            {% trans 'Projekt i wykonanie' %} – <a href="https://www.kadmix.pl" target="_blank">Kadmix.pl</a></p>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-xs-3 payments_footer">
+          <img loading="lazy" src="../../static/images/Group%20202.png">
+          <img loading="lazy" src="../../static/images/Group%20201.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

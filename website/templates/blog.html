@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+{% load thumbnail %}
+{% block head %}
+{% endblock %}
+{% block title %} BlackCars - Wynajem samochodów klasy premium {% endblock %}
+{% block content %}
+  <section class="section-grey">
+    <div class="container">
+      <div class="row">
+        {% if posts %}
+          {% for el in posts %}
+            <div class="col-lg-4 col-xl-4 col-md-4 col-xs-12">
+              <div class="blog-post-cont-2 wow fadeIn" data-wow-offset="30" data-wow-duration="1.5s"
+                   data-wow-delay="0.15s"
+                   style="visibility: visible; animation-duration: 1.5s; animation-delay: 0.15s; animation-name: fadeIn;">
+                {% thumbnail el.image_small "800x500" crop="center" as im %}
+                  <img src="{{ im.url }}" class="img-responsive" alt="">
+                {% endthumbnail %}
+                <div class="blog-post-cont-text">
+                  <h4><a href="{% url 'blog_post' post_slug=el.slug_posts %}">{{ el.title }}</a></h4>
+                  <p class="blog-post-info"><strong><i class="fa fa-calendar"></i>
+                  </strong> {{ el.date }}</p>
+                  <p class="short_desc">{{ el.short_desc|safe }}</p>
+                  <div class="text-center">
+                    <a href="{% url 'blog_post' post_slug=el.slug_posts %}" class="btn btn-primary">Zobacz</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="container">
+            <div class="row"></div>
+            <div class="col-12 text-center">
+              <h3>There are no articles yet.</h3>
+            </div>
+          </div>
+          </div>
+        {% endif %}
+    </div>
+    <div class="container text-center page_navigation_container">
+      {% if posts.has_previous %}
+        <a class="blog_navigation" href="{% url 'blog' %}?page={{ posts.previous_page_number }}"><i
+            class="fa fa-angle-left"></i></a>
+      {% endif %}
+      {% if posts.has_next %}
+        <a class="blog_navigation" href="{% url 'blog' %}?page={{ posts.next_page_number }}"><i
+            class="fa fa-angle-right"></i></a>
+      {% endif %}
+    </div>
+  </section>
+  {% include 'base/fixed-contact-button.html' %}
+{% endblock %}

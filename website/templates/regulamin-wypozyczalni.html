@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block head %}
+{% endblock %}
+{% block title %} {% trans 'BlackCars - Wynajem samochodów klasy premium' %} {% endblock %}
+{% block content %}
+    <section class="section-grey sukcess_reservation">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>{% trans 'Regulamin wynajmu samochodów' %}</h2>
+                    <p>{% trans 'Regulamin wynajmu samochodów naszej wypożyczalni pobierzesz klikając pobierz regulamin.' %}</p>
+                    <p><a href="{% static 'files/Regulamin-Postanowienia-ogolne.pdf' %}" target="_blank"><button class="button_with_fill">{% trans 'Pobierz regulamin' %}</button></a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'base/fixed-contact-button.html' %}
+{% endblock %}

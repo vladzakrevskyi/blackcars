@@ -1,0 +1,154 @@
+{% extends 'base/base.html' %}
+{% load mathfilters %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block head %}
+{% endblock %}
+{% block title %} {% trans 'BlackCars - Wynajem samochodów klasy premium' %} {% endblock %}
+{% block content %}
+
+  {% if promotion_cars %}
+  <section class="section-grey our_cars_title {% if promotion_cars is None %}hide{% endif %}">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 our_cars_title">
+          <h1 class="text-left">{% trans 'Promocje' %}</h1>
+          <div class="section-heading-line-left"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-grey our_cars_item">
+    <div class="container">
+      {% for el in promotion_cars %}
+        <div class="row">
+          <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12 car_item" style="background-color: #626262;">
+            <div class="col-lg-4 col-xl-4 col-md-4 zero_padding_left car_image">
+              <div class="promotion-label">
+                <span>{% trans 'PROMO' %}<br>-{{ el.promotion }}%</span>
+              </div>
+              {% thumbnail el.car_photo "1000x650" crop="center" as im %}
+                <a href="{% url 'car-detail' car_slug=el.slug_car %}"><img loading="lazy" src="{{ im.url }}"></a>
+              {% endthumbnail %}
+            </div>
+            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 car_info">
+              <div class="car_title">
+                <a href="{% url 'car-detail' car_slug=el.slug_car %}">
+                  <h2>{{ el.model }}</h2>
+                  <div class="section-heading-line-left"></div>
+                </a>
+              </div>
+              <div class="car_specification">
+                <div class="mobile_spec">
+                  <ul id="car_spec_mobile">
+                    {% for a in el.options.all %}
+                      <li class="car_specifications">
+                        <h4>{{ a.option }}</h4>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                {% for a in el.options.all %}
+                  <div class="car_specification_item">
+                    <div class="car_specification_item_name_spec">
+                      <h4>{{ a.option }}</h4>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="col-lg-2 col-xl-2 col-sm-12 col-md-2 car_price">
+              <div class="car_price_from">
+                <div class="promotion">
+                  {% with promotion=el.price|mul:el.promotion|div:100|floatformat:0 %}
+                    <h2>od {{ el.price|sub:promotion }} {% trans 'zł/db' %}</h2>
+                  {% endwith %}
+                  <h3 class="crossed">od {{ el.price }} {% trans 'zł/db' %}</h3>
+                </div>
+              </div>
+              <div class="car_price_button">
+                <a href="{% url 'car-detail' car_slug=el.slug_car %}">
+                  <button class="button_no_fill">{% trans 'Poznaj szczegóły' %}</button>
+                </a>
+                <a href="{% url 'car-reservation' slug_car_reservation=el.slug_car %}">
+                  <button class="button_with_fill">{% trans 'Wynajmij' %}</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% else %}
+  <section class="section-grey"></section>
+  {% endif %}
+
+  <section class="section-grey our_cars_title pt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 our_cars_title">
+          <h1 class="text-left">{% trans 'Nasza flota' %}</h1>
+          <div class="section-heading-line-left"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-grey our_cars_item">
+    <div class="container">
+      {% for el in cars %}
+        <div class="row">
+          <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12 car_item">
+            <div class="col-lg-4 col-xl-4 col-md-4 zero_padding_left car_image">
+              {% thumbnail el.car_photo "1000x650" crop="center" as im %}
+                <a href="{% url 'car-detail' car_slug=el.slug_car %}"><img loading="lazy" src="{{ im.url }}"></a>
+              {% endthumbnail %}
+            </div>
+            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 car_info">
+              <div class="car_title">
+                <a href="{% url 'car-detail' car_slug=el.slug_car %}">
+                  <h2>{{ el.model }}</h2>
+                  <div class="section-heading-line-left"></div>
+                </a>
+              </div>
+              <div class="car_specification">
+                <div class="mobile_spec">
+                  <ul id="car_spec_mobile">
+                    {% for a in el.options.all %}
+                      <li class="car_specifications">
+                        <h4>{{ a.option }}</h4>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                {% for a in el.options.all %}
+                  <div class="car_specification_item">
+                    <div class="car_specification_item_name_spec">
+                      <h4>{{ a.option }}</h4>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="col-lg-2 col-xl-2 col-sm-12 col-md-2 car_price">
+              <div class="car_price_from">
+                <h2 class="">od {{ el.price }} {% trans 'zł/db' %}</h2>
+                <br>
+              </div>
+              <div class="car_price_button">
+                <a href="{% url 'car-detail' car_slug=el.slug_car %}">
+                  <button class="button_no_fill">{% trans 'Poznaj szczegóły' %}</button>
+                </a>
+                <a href="{% url 'car-reservation' slug_car_reservation=el.slug_car %}">
+                  <button class="button_with_fill">{% trans 'Wynajmij' %}</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% include 'base/fixed-contact-button.html' %}
+{% endblock %}

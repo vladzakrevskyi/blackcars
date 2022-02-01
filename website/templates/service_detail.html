@@ -1,0 +1,85 @@
+{% extends 'base/base.html' %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block head %}
+{% endblock %}
+{% block title %} {% trans 'BlackCars - Wynajem samochodów klasy premium' %} {% endblock %}
+
+{% block content %}
+  <section id="inner-header" class="inner-header" style="
+               background-color: rgba(0,0,0,0.59);
+               background-image: url('{{ service.slider_image.url }}');
+               background-image: linear-gradient(
+               180deg
+               , #000000 0%,rgba(255,255,255,0) 49%),url('{{ service.slider_image.url }}');
+               background-position: center center;
+               background-repeat: no-repeat;
+               background-blend-mode: overlay;
+               border-width: 0px 0px 0px 0px;
+               border-color: #3e3e3e;
+               border-style: solid;
+               -webkit-background-size: cover;
+               -moz-background-size: cover;
+               -o-background-size: cover;
+               background-size: cover;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="inner-header-txt-cont service_title">
+            <h1 class="text-center">{{ service.name }}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-grey">
+    {% for a in service %}
+      <div class="container block_service">
+        <div class="row">
+          {% if a.image %}
+            {% if a.choise == 'Zdjęcie po lewej' %}
+              <div class="col-12">
+                <div class="blog-list-simple-img">
+                  {% thumbnail a.image "600x450" crop="center" as im %}
+                    <img loading="lazy" class="img-left" src="{{ im.url }}" alt="img">
+                  {% endthumbnail %}
+                </div>
+                <div class="blog-list-simple-text">
+                  {% if a.title %}
+                    <h4>{{ a.title|safe }}</h4>
+                    <hr class="hr-left">
+                  {% endif %}
+                  <p>{{ a.desc|safe }}</p>
+                </div>
+              </div>
+            {% else %}
+              <div class="col-12">
+                <div class="blog-list-simple-img">
+                  {% thumbnail a.image "600x450" crop="center" as im %}
+                    <img loading="lazy" class="img-right" src="{{ im.url }}" alt="img">
+                  {% endthumbnail %}
+                </div>
+                <div class="blog-list-simple-text">
+                  {% if a.title %}
+                    <h4>{{ a.title|safe }}</h4>
+                    <hr class="hr-left">
+                  {% endif %}
+                  <p>{{ a.desc|safe }}</p>
+                </div>
+              </div>
+            {% endif %}
+
+          {% else %}
+            <div class="container service_block">
+              <h3>{{ a.title|safe }}</h3>
+              <hr class="hr-left">
+              <p>{{ a.desc|safe }}</p>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+{% include 'base/fixed-contact-button.html' %}
+{% endblock %}

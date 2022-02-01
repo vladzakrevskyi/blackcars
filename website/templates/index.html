@@ -1,0 +1,383 @@
+{% extends 'base/base.html' %}
+{% load mathfilters %}
+{% load thumbnail %}
+{% load static %}
+{% load i18n %}
+
+{% block head %}
+  <meta name="description" content="Wynajem aut klasy premium. Wypożyczalnia Mercedes, BMW, Audi, SUV i inne. Skorzystaj z naszych usług w Warszawie i nie tylko.">
+{% endblock %}
+
+{% block title %} {% trans 'BlackCars - Wynajem Samochodów Klasy Premium - Warszawa' %} {% endblock %}
+{% block content %}
+  <body>
+  <section id="banner-1">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        {% for el in slider %}
+          <div class="item">
+            <div class="slides_text" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)), url('{{ el.images.url }}'); background-size: contain">
+              <h1>{{ el.title|safe }}</h1>
+              <p>{{ el.sub_title|safe }}</p>
+              <a href="{{ el.link_1 }}">
+                <button class="button-slider-with-fill">
+                  <div>{{ el.button_1 }}</div>
+                </button>
+              </a>
+            </div>
+            {% thumbnail el.images "870x790" as im %}
+              <img loading="lazy" src="{{ im.url }}" alt="img.jpg" class="img-responsive" style="filter: none; min-height: 81vw">
+            {% endthumbnail %}
+          </div>
+        {% endfor %}
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev"
+           style="top: 66%; left: -4.2%;">
+          <img loading="lazy" src="{% static 'images/Vector 19.png' %}">
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"
+           style="top: 66%; right: -2.7%;">
+          <img loading="lazy" src="{% static 'images/Vector 20.png' %}">
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="sim-slider">
+      <ul class="sim-slider-list">
+        <li><img loading="lazy" src="{% static 'images/main_page_slider/pl_PS-Colour-Black.jpeg' %}" alt="screen"></li>
+        {% for el in slider %}
+          <li class="sim-slider-element">
+            <div class="text-section" style="position: absolute;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                            height: 75vw;
+                            background: #000;
+                            padding-top: 6vw;
+                            margin-top: -14%;
+                            margin-left: -24.4%;
+                            width: 71.1vw;
+                            transform: rotate(14.5deg);">
+              <div class="back_image_slider">
+                <img loading="lazy" src="{{ el.images.url }}">
+              </div>
+
+              <div class="text">
+                <h1>{{ el.title|safe }}</h1>
+                <p>{{ el.sub_title|safe }}</p>
+                <a href="{{ el.link_1 }}">
+                  <button class="button-slider-with-fill">
+                    <div>{{ el.button_1 }}</div>
+                  </button>
+                </a>
+                <a href="{{ el.link_2 }}">
+                  <button class="button-slider-no-fill">
+                    <i class="fa fa-phone"></i><div>{{ el.button_2 }}</div>
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div class="social-cont">
+              <ul>
+                <li><a href="https://www.instagram.com/blackcars.pl/"
+                       class="tran3s round-border icon"><i
+                    class="fa fa-instagram"
+                    aria-hidden="true"></i></a></li>
+                <li class="facebook"><a href="https://www.facebook.com/blackcarspl/" class="tran3s round-border icon"><i
+                    class="fa fa-facebook"
+                    aria-hidden="true"></i></a></li>
+                <li class="messanger"><a href="https://wa.me/+48720889788" class="tran3s round-border icon"><i
+                    class="fa fa-whatsapp"
+                    aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+            <div class="line-opacity-first"></div>
+            <div class="line-opacity-sec"></div>
+            {% thumbnail el.images "870x700" as im %}
+              <img loading="lazy" class="background-slider-image" src="{{ im.url }}">
+            {% endthumbnail %}
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="sim-slider-arrow-left"></div>
+      <div class="sim-slider-arrow-right"></div>
+    </div>
+  </section>
+  <section class="section-grey carousel-section" style="z-index: 999999">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 home_title">
+          <h1 class="title-left-line text-left">{% trans 'Wypożyczalnia samochodów klasy premium' %}</h1>
+        </div>
+        <div class="why_we why_we_mobile" style="display: none">
+          <ul id="lightSlider">
+            <li>
+              <div class="col-xs-12 why_we_item">
+                <h3><img loading="lazy" src="../static/images/circle_brown_ok.png">{% trans 'Bogata flota' %}</h3>
+                <p>{% trans 'Nasza flota samochodów nieustannie się zwiększa, aby zapewnić naszym klientom odpowiedni pojazd.' %}</p>
+              </div>
+            </li>
+            <li>
+              <div class="col-xs-12  why_we_item">
+                <h3><img loading="lazy" src="../static/images/circle_brown_ok.png">{% trans 'Wynajem BEZ kaucji' %} </h3>
+                <p>{% trans 'Zaplać online kartą kredytową i wynajmij samochód bez kaucji' %}</p>
+              </div>
+            </li>
+            <li>
+              <div class="col-xs-12  why_we_item">
+                <h3><img loading="lazy" src="../static/images/circle_brown_ok.png">{% trans 'Klarowna umowa' %}</h3>
+                <p>{% trans 'W naszych umowach nie znajdziesz żadnych kruczków prawnych, ani haczyków zapisanych drobnym druczkiem.' %}</p>
+              </div>
+            </li>
+            <li>
+              <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 col-xs-12  why_we_item">
+                <h3><img loading="lazy" src="../static/images/circle_brown_ok.png">{% trans 'Podstawianie aut' %}</h3>
+                <p>{% trans 'Możemy dla Twojej wygody zawrzeć umowę na odległość, a następnie podstawić Ci auto.' %}</p>
+              </div>
+            </li>
+            <li>
+              <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 col-xs-12  why_we_item">
+                <h3><img loading="lazy" src="../static/images/circle_brown_ok.png">{% trans 'Perfekcyjne auta' %}</h3>
+                <p>{% trans 'Systematycznie dbamy o stan techniczny naszej floty, myjemy i dezynfekujemy auta po każdym wynajmie.' %}</p>
+              </div>
+            </li>
+            <li>
+              <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 col-xs-12  why_we_item">
+                <h3><img loading="lazy" src="../static/images/circle_brown_ok.png">{% trans 'Cały Kraj' %}</h3>
+                <p>{% trans 'Dostarczamy auta na terenie całej Polski.' %}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12 why_we why_we_hide">
+          <div class="row">
+            <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 col-xs-12 why_we_item">
+              <h3><img loading="lazy" src="../static/images/circle_brown_ok.png">{% trans 'Bogata flota' %}</h3>
+              <p>{% trans 'Nasza flota samochodów nieustannie się zwiększa, aby zapewnić naszym klientom odpowiedni pojazd.' %}</p>
+            </div>
+            <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 col-xs-12  why_we_item">
+              <h3><img loading="lazy" src="../static/images/circle_brown_ok.png">{% trans 'Wynajem BEZ kaucji' %}</h3>
+              <p>{% trans 'Zaplać online kartą kredytową i wynajmij samochód bez kaucji' %}</p>
+            </div>
+            <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 col-xs-12  why_we_item">
+              <h3><img loading="lazy" src="../static/images/circle_brown_ok.png">{% trans 'Podstawianie aut' %}</h3>
+              <p>{% trans 'Możemy dla Twojej wygody zawrzeć umowę na odległość, a następnie podstawić Ci auto.' %}</p>
+            </div>
+            <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 col-xs-12  why_we_item">
+              <h3><img loading="lazy" src="../static/images/circle_brown_ok.png">{% trans 'Klarowna umowa' %}</h3>
+              <p>{% trans 'W naszych umowach nie znajdziesz żadnych kruczków prawnych, ani haczyków zapisanych drobnym druczkiem.' %}</p>
+            </div>
+            <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 col-xs-12  why_we_item">
+              <h3><img loading="lazy" src="../static/images/circle_brown_ok.png">{% trans 'Perfekcyjne auta' %}</h3>
+              <p>{% trans 'Systematycznie dbamy o stan techniczny naszej floty, myjemy i dezynfekujemy auta po każdym wynajmie.' %}</p>
+            </div>
+            <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 col-xs-12  why_we_item">
+              <h3><img loading="lazy" src="../static/images/circle_brown_ok.png">{% trans 'Cały Kraj' %}</h3>
+              <p>{% trans 'Dostarczamy auta na terenie całej Polski.' %}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% if cars %}
+    <section class="section-grey rent_cars our_cars_item">
+      <div class="container">
+        <div class="row">
+          <div class="col-12" style="margin-bottom: 30px">
+            <h1 class="title-left-line text-left">{% trans 'Wynajmij teraz' %}</h1>
+          </div>
+          {% for el in cars %}
+            <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12 car_item"{% if el.promotion %} style="background-color: #626262;" {% endif %}>
+              <div class="col-lg-4 col-xl-4 col-md-4 zero_padding_left car_image">
+                {% if el.promotion %}
+                  <div class="promotion-label">
+                    <span>{% trans 'PROMO' %}<br>-{{ el.promotion }}%</span>
+                  </div>
+                {% endif %}
+                {% thumbnail el.car_photo "1000x650" crop="center" as im %}
+                  <a href="{% url 'car-detail' car_slug=el.slug_car %}"><img loading="lazy" src="{{ im.url }}"></a>
+                {% endthumbnail %}
+              </div>
+              <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 car_info">
+                <div class="car_title">
+                  <a href="{% url 'car-detail' car_slug=el.slug_car %}">
+                    <h2>{{ el.model }}</h2>
+                    <div class="section-heading-line-left"></div>
+                  </a>
+                </div>
+                <div class="car_specification">
+                  <div class="mobile_spec">
+                    <ul id="car_spec_mobile">
+                      {% for a in el.options.all %}
+                        <li class="car_specifications">
+                          <h4>{{ a.option }}</h4>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                  {% for a in el.options.all %}
+                    <div class="car_specification_item">
+                      <div class="car_specification_item_name_spec">
+                        <h4>{{ a.option }}</h4>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="col-lg-2 col-xl-2 col-sm-12 col-md-2 car_price">
+                <div class="car_price_from">
+                  {% if el.promotion %}
+                    <div class="promotion">
+                      {% with promotion=el.price|mul:el.promotion|div:100|floatformat:0 %}
+                        <h2>od {{ el.price|sub:promotion }} {% trans 'zł/db' %}</h2>
+                      {% endwith %}
+                      <h3 class="crossed">od {{ el.price }} {% trans 'zł/db' %}</h3>
+                    </div>
+                  {% else %}
+                    <h2 class="">od {{ el.price }} {% trans 'zł/db' %}</h2>
+                    <br>
+                  {% endif %}
+                </div>
+                <div class="car_price_button">
+                  <a href="{% url 'car-detail' car_slug=el.slug_car %}">
+                    <button class="button_no_fill">{% trans 'Poznaj szczegóły' %}</button>
+                  </a>
+                  <a href="{% url 'car-reservation' slug_car_reservation=el.slug_car %}">
+                    <button class="button_with_fill">{% trans 'Wynajmij' %}</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="col-12 text-center our_cars" style="margin-top: 1%">
+          <a href="{% url 'our-cars' %}">
+            <button class="button_with_fill">{% trans 'Zobacz wszystkie samochody' %}</button>
+          </a>
+        </div>
+      </div>
+    </section>
+  {% else %}
+  {% endif %}
+  <section class="section-grey our_services" style="padding-top: 32px">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 text-left">
+          <h1 class="title-left-line text-left">{% trans 'Nasze usługi' %}</h1>
+          <p class="our_service_sub_title">{% trans 'Oprócz możliwości codziennego poruszania się autami premium, oferujemy Ci także usługi przewozów VIP. Chcemy sprawić, by podróżowanie autami najwyższych segmentów kojarzyło się nie tylko z luksusem, ale i wygodą. Dlatego chętnie dostosujemy swoją ofertę do Twoich potrzeb – sprawdź nas!' %}</p>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 services">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 our_services_img">
+            <img loading="lazy" src="../static/images/Rectangle%20105.jpg">
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 our_services_title"
+               style="padding-left: 30px">
+            <h3>{% trans 'Transfery lotniskowe' %}</h3>
+            <div class="section-heading-line-left"></div>
+          </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 services">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 our_services_title"
+               style="padding-left: 0">
+            <h3>{% trans 'Wynajem busów klasy premium z kierowcą' %}</h3>
+            <div class="section-heading-line-left"></div>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 our_services_img">
+            <img loading="lazy" src="../static/images/Rectangle%20106.jpg">
+          </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 services">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 our_services_img">
+            <img loading="lazy" src="../static/images/Rectangle%20107.jpg">
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 our_services_title"
+               style="padding-left: 30px">
+            <h3>{% trans 'Wynajem limuzyny z kierowcą' %}</h3>
+            <div class="section-heading-line-left"></div>
+          </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 services">
+          <a href="/auto-do-slubu">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 our_services_title"
+                 style="padding-left: 0">
+              <h3>{% trans 'Wynajem samochodów do ślubu' %}</h3>
+              <div class="section-heading-line-left"></div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 our_services_img">
+              <img loading="lazy" src="../static/images/Rectangle%20108.jpg">
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-grey promotion">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="title-left-line text-left">{% trans 'Promocje' %}</h1>
+        </div>
+        <div class="col-lg-12 col-xl-12 col-md-12 promotion_content">
+          <div class="col-lg-6 col-xl-6 col-md-6 promotion_text">
+            <div>
+              <h3>{% trans 'Karty podarunkowe na wynajem i usługi' %}</h3>
+              <div class="section-heading-line-left"></div>
+              <p>{% trans 'Certyfikat jest ważny 1 rok. Oprócz możliwości codziennego poruszania się autami premium, oferujemy Ci także usługi przewozów VIP.' %} </p>
+              <a href="{% url 'contact' %}">
+                <button class="button_with_fill">{% trans 'Kup teraz' %}</button>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xl-6 col-md-6 promotion_img">
+            <img loading="lazy" src="../static/images/karty.png">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-grey newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-xl-12 col-md-12 newsletter_section">
+          <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 newsletter_img">
+            <img loading="lazy" src="../static/images/Rectangle%20109.jpg">
+          </div>
+          <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 newsletter_content">
+            <h3>{% trans 'Zapisz się na newsletter i dostań zniżkę 10%' %}</h3>
+            <div class="section-heading-line-left"></div>
+            <div class="send_newsletter">
+              <form method="post">
+                {% csrf_token %}
+                <input class="input_newsletter" name="email" type="email" placeholder="{% trans 'E-mail' %}" required>
+                <input class="send_newsletter_button" type="submit" value="{% trans 'Zapisz się' %}">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <div id="qnimate" class="off">
+    <div id="search" class="open">
+      <button data-widget="remove" id="removeClass" class="close" type="button">×</button>
+      <form action="#" method="post" autocomplete="off">
+        <input type="text" placeholder="Type search keywords here" value="" name="term" id="term">
+        <button class="btn btn-primary btn-xl" type="submit"><span class="glyphicon glyphicon-search"></span>
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+  <!-- main slider -->
+  <script src="{% static 'js/slider.js' %}"></script>
+  {% include 'base/fixed-contact-button.html' %}
+{% endblock %}
+

@@ -1,0 +1,573 @@
+{% extends 'base/base.html' %}
+{% load mathfilters %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block head %}
+  {% if car.meta_description %}
+    <meta name="description" content="{{ car.meta_description }}">
+  {% endif %}
+{% endblock %}
+{% block title %}
+  {% if car.meta_title %}
+    {{ car.meta_title }}
+  {% else %}
+    {% trans 'BlackCars - Wynajem samochodów klasy premium' %}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <section class="section-grey detail_car short-content" style="padding-top: 93px; padding-bottom: 0">
+    <div class="container car_detail">
+      <h1 class="text-center mobile-show" style="padding-left: 18px!important">{{ car.model }}</h1>
+      <div class="section-heading-line-left mob mobile-show" style="margin-top: 5px; margin-left: 18px;"></div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 car_detail_about">
+        <h1 class="text-center desktop-show">{{ car.model }}</h1>
+        <div class="section-heading-line-left desktop-show line-about_car" style="width: 85px"></div>
+        <div class="detail">
+          {% for a in car.options.all %}
+            <div class="text-center option_car">
+              <h4>{{ a.option }}</h4>
+            </div>
+          {% endfor %}
+        </div>
+        {% if car.about %}
+          <div class="about_car">{{ car.about|truncatechars_html:350|safe }}</div>
+          <a href="#more" class="read-more-btn">{% trans 'Czytaj więcej' %}</a>
+        {% endif %}
+      </div>
+      <div class="container">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 slider">
+          <!-- bootstrap carousel -->
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
+               data-interval="false">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="item active" data-toggle="modal" data-target="#exampleModalLong">
+                {% if car.promotion %}
+                  <div class="promotion-label">
+                    <span>{% trans 'PROMO' %}<br>-{{ car.promotion }}%</span>
+                  </div>
+                {% endif %}
+                {% thumbnail car.car_photo "1200x700" crop="center" as im %}
+                  <img loading="lazy" src="{{ im.url }}" alt="img.jpg" class="img-responsive">
+                {% endthumbnail %}
+                <div class="carousel-caption">
+                </div>
+              </div>
+              {% for a in car.slider_images.all %}
+                <div class="item" data-toggle="modal" data-target="#exampleModalLong">
+                  {% thumbnail a.image "1200x700" crop="center" as im %}
+                    <img loading="lazy" src="{{ im.url }}" alt="img.jpg" class="img-responsive">
+                  {% endthumbnail %}
+                  <div class="carousel-caption">
+                  </div>
+                </div>
+              {% endfor %}
+
+            </div>
+
+            <!-- Thumbnails -->
+            <ul class="thumbnails-carousel clearfix">
+              <li>
+                {% thumbnail car.car_photo "115x65" crop="center" as im %}
+                  <img loading="lazy" src="{{ im.url }}" alt="img_thumbnail.jpg" width="12%">
+                {% endthumbnail %}
+              </li>
+              {% for c in car.slider_images.all %}
+                <li>
+                  {% thumbnail c.image "115x65" crop="center" as im %}
+                    <img loading="lazy" src="{{ im.url }}" alt="img_thumbnail.jpg" width="12%">
+                  {% endthumbnail %}
+                </li>
+              {% endfor %}
+            </ul>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button"
+               data-slide="prev"
+               style="left: 46px">
+              <span class="glyphicon glyphicon-chevron-left"><img src="../static/images/Vector%2019.png"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button"
+               data-slide="next"
+               style="right: 38px">
+              <span class="glyphicon glyphicon-chevron-right"><img src="../static/images/Vector%2020.png"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  {% thumbnail car.car_photo "1200x700" crop="center" as im %}
+                    <img loading="lazy" src="{{ im.url }}" alt="img.jpg" style="filter: none">
+                  {% endthumbnail %}
+                </div>
+                {% for a in car.slider_images.all %}
+                  <div class="item">
+                    {% thumbnail a.image "1200x700" crop="center" as im %}
+                      <img loading="lazy" src="{{ im.url }}" alt="img.jpg" class="img-responsive"
+                           style="filter: none">
+                    {% endthumbnail %}
+                  </div>
+                {% endfor %}
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="top: 0%; left: -4.2%;">
+                  <span class="glyphicon glyphicon-chevron-left"><img src="../static/images/Vector%2019.png"></span>
+                  <span class="sr-only">{% trans 'Poprzednia' %}</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next" style="top: 0%; right: -2.7%;">
+                  <span class="glyphicon glyphicon-chevron-right"><img src="../static/images/Vector%2020.png"></span>
+                  <span class="sr-only">{% trans 'Następna' %}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-grey about_cars">
+    <div class="container">
+      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12 table_price">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 table_info" style="margin-top: 0">
+          <h2 class="text-left">{% trans 'Cennik brutto' %}</h2>
+          <table class="table_mobile">
+            {% for rp in rent_periods %}
+              {% if rp.car == car %}
+                <tr>
+                  <td class="mobile_td_left"><h4 class="price_days left_td">{{ rp.period }}</h4></td>
+                  {% if car.promotion %}
+                    {% with promotion=rp.price|mul:car.promotion|div:100|floatformat:0 %}
+                      <td class="mobile_td_right promotion-two-prices">
+                        <h4 class="price_for_days right_td">{{ rp.price|sub:promotion }} {{ rp.text }}</h4>
+                        <h5 class="price_for_days right_td crossed">{{ rp.price }} {{ rp.text }}</h5>
+                      </td>
+                    {% endwith %}
+                  {% else %}
+                    <td class="mobile_td_right"><h4 class="price_for_days right_td">{{ rp.price }} {{ rp.text }}</h4></td>
+                  {% endif %}
+                </tr>
+              {% endif %}
+            {% endfor %}
+            <tr>
+              <td class="mobile_td_left"><h4 class="price_days left_td">{% trans '1 miesiąc' %}</h4></td>
+              {% if car.promotion %}
+                {% with promotion=car.month_price|mul:car.promotion|div:100|floatformat:0 %}
+                  <td class="mobile_td_right promotion-two-prices">
+                    <h4 class="price_for_days right_td">{{ car.month_price|sub:promotion }} {% trans 'zł' %}</h4>
+                    <h5 class="price_for_days right_td crossed month">{{ car.month_price }} {% trans 'zł' %}</h5>
+                  </td>
+                {% endwith %}
+              {% else %}
+                <td class="mobile_td_right"><h4 class="price_for_days right_td">{{ car.month_price }} {% trans 'zł' %}</h4></td>
+              {% endif %}
+            </tr>
+          </table>
+
+          <table class="table-price">
+            <thead>
+            {% for rp in rent_periods %}
+              <tr><th><h4 class="price_days">{{ rp.period }}</h4></th></tr>
+            {% endfor %}
+            <tr><th><h4 class="price_days">{% trans '1 miesiąc' %}</h4></th></tr>
+            </thead>
+            <tbody>
+            {% for rp in rent_periods %}
+              {% if rp.car == car %}
+                {% if car.promotion %}
+                  {% with promotion=rp.price|mul:car.promotion|div:100|floatformat:0 %}
+                    <tr class="promotion-two-prices"><td>
+                      <h4 class="price_for_days">{{ rp.price|sub:promotion }} {{ rp.text }}</h4>
+                      <h5 class="crossed">{{ rp.price }} {{ rp.text }}</h5>
+                    </td></tr>
+                  {% endwith %}
+                {% else %}
+                  <tr><td><h4 class="price_for_days">{{ rp.price }} {{ rp.text }}</h4></td></tr>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            {% if car.promotion %}
+              {% with promotion=car.month_price|mul:car.promotion|div:100|floatformat:0 %}
+                <tr class="promotion-two-prices"><td>
+                  <h4 class="price_for_days">{{ car.month_price|sub:promotion }} {% trans 'zł' %}</h4>
+                  <h5 class="crossed month">{{ car.month_price }} {% trans 'zł' %}</h5>
+                </td></tr>
+              {% endwith %}
+            {% else %}
+              <tr><td><h4 class="price_for_days">{{ car.month_price }} {% trans 'zł' %}</h4></td></tr>
+            {% endif %}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 table_info">
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 no-padding">
+            <h2 class="text-left">{% trans 'kaucja zwrotna brutto' %}</h2>
+            <table class="table_mobile">
+              <tr>
+                <td class="mobile_td_left"><h4 class="price_days left_td width_max">{% trans 'Przy płatności z góry' %}</h4></td>
+                <td class="mobile_td_right">
+                  <h4 class="price_for_days right_td">
+                    {% if car.is_rent_deposit %}{{ car.rent_deposit }} {% trans 'zł' %}{% else %}0 {% trans 'zł' %}
+                    {% endif %}
+                  </h4></td>
+              </tr>
+              <tr>
+                <td class="mobile_td_left"><h4 class="price_days left_td width_max">{% trans 'Przy płatności w biurze' %}</h4>
+                </td>
+                <td class="mobile_td_right"><h4 class="price_for_days right_td">{{ car.deposit }}
+                  {% trans 'zł' %}</h4></td>
+              </tr>
+            </table>
+
+            <table class="table-price">
+              <thead>
+              <tr>
+                <th><h4 class="price_days">{% trans 'Przy płatności z góry' %}</h4></th>
+              </tr>
+              <tr>
+                <th><h4 class="price_days">{% trans 'Przy płatności w biurze' %}</h4></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><h4 class="price_for_days">{% if car.is_rent_deposit %}{{ car.rent_deposit }} {% trans 'zł' %}{% else %}0 {% trans 'zł' %}{% endif %}</h4></td>
+              </tr>
+              <tr>
+                <td><h4 class="price_for_days">{{ car.deposit }} {% trans 'zł' %}</h4></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 ubez" style="padding: 0; padding-left: 20px">
+            <h2 class="text-left">{% trans 'Ubezpieczenie' %}</h2>
+            <table class="table_mobile">
+              <tr>
+                <td class="mobile_td_left"><h4 class="price_days left_td width_max">{% trans 'OC, AC, NNW' %}</h4>
+                </td>
+                <td class="mobile_td_right"><h4 class="price_for_days right_td">{{ car_detail.3 }}</h4>
+                </td>
+              </tr>
+            </table>
+
+
+            <table class="table-price">
+              <thead>
+              <tr>
+                <th><h4 class="price_days">{% trans 'OC, AC, NNW' %}</h4></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><h4 class="price_for_days">
+                  {{ car_detail.3 }}
+                </h4></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 table_info">
+          <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 no-padding">
+            <h2 class="text-left">{% trans 'Wymagania' %}</h2>
+
+            <table class="table_mobile">
+              <tr>
+                <td class="mobile_td_left"><h4 class="price_days left_td width_max">{% trans 'Minimalny wiek kierowcy' %}</h4></td>
+                <td class="mobile_td_right"><h4 class="price_for_days right_td">{{ car_detail.0 }}</h4></td>
+              </tr>
+              <tr>
+                <td class="mobile_td_left"><h4 class="price_days left_td width_max">{% trans 'posiadanie prawa jazdy' %}</h4></td>
+                <td class="mobile_td_right"><h4 class="price_for_days right_td">{{ car_detail.1 }}</h4></td>
+              </tr>
+            </table>
+
+            <table class="table-price">
+              <thead>
+              <tr>
+                <th><h4 class="price_days">{% trans 'Minimalny wiek kierowcy' %}</h4></th>
+              </tr>
+              <tr>
+                <th><h4 class="price_days">{% trans 'posiadanie prawa jazdy' %}</h4></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><h4 class="price_for_days">{{ car_detail.0 }}</h4></td>
+              </tr>
+              <tr>
+                <td><h4 class="price_for_days">{{ car_detail.1 }}</h4></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 padding ubez" style="padding-right: 0">
+            <h2 class="text-left">{% trans 'Serwis 24/7' %}</h2>
+            <table class="table_mobile">
+              <tr>
+                <td class="mobile_td_left"><h4 class="price_days left_td width_max">{% trans 'Serwis, przeglądy, Opony' %}</h4></td>
+                <td class="mobile_td_right"><h4 class="price_for_days right_td">{{ car_detail.2 }}</h4>
+                </td>
+              </tr>
+            </table>
+
+            <table class="table-price">
+              <thead>
+              <tr>
+                <th><h4 class="price_days">{% trans 'Serwis, przeglądy, Opony' %}</h4></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><h4 class="price_for_days">{{ car_detail.2 }}</h4></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 table_info">
+          <h2 class="text-left">{% trans 'Limit km' %}</h2>
+          <table class="table_mobile">
+            <tr>
+              <td class="mobile_td_left"><h4 class="price_days left_td">{% trans 'Dziennie' %}</h4></td>
+              <td class="mobile_td_right"><h4 class="price_for_days right_td">{{ car.limit_per_day }}</h4></td>
+            </tr>
+            <tr>
+              <td class="mobile_td_left"><h4 class="price_days left_td">{% trans 'Tygodniowo' %}</h4></td>
+              <td class="mobile_td_right"><h4 class="price_for_days right_td">{{ car.limit_per_week }}</h4></td>
+            </tr>
+            <tr>
+              <td class="mobile_td_left"><h4 class="price_days left_td">{% trans 'Dwa tygodnie' %}</h4></td>
+              <td class="mobile_td_right"><h4 class="price_for_days right_td">{{ car.limit_per_two_weeks }}</h4></td>
+            </tr>
+            <tr>
+              <td class="mobile_td_left"><h4 class="price_days left_td">{% trans 'Miesięcznie' %}</h4></td>
+              <td class="mobile_td_right"><h4 class="price_for_days right_td">{{ car.limit_per_month }}</h4></td>
+            </tr>
+            <tr>
+              <td class="mobile_td_left"><h4 class="price_days left_td">{% trans 'Rocznie' %}</h4></td>
+              <td class="mobile_td_right"><h4 class="price_for_days right_td">{{ car.limit_per_year }}</h4></td>
+            </tr>
+          </table>
+
+          <table class="table-price">
+            <thead>
+            <tr>
+              <th><h4 class="price_days">{% trans 'Dziennie' %}</h4></th>
+            </tr>
+            <tr>
+              <th><h4 class="price_days">{% trans 'Tygodniowo' %}</h4></th>
+            </tr>
+            <tr>
+              <th><h4 class="price_days">{% trans 'Dwa tygodnie' %}</h4></th>
+            </tr>
+            <tr>
+              <th><h4 class="price_days">{% trans 'Miesięcznie' %}</h4></th>
+            </tr>
+            <tr>
+              <th><h4 class="price_days">{% trans 'Rocznie' %}</h4></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><h4 class="price_for_days">{{ car.limit_per_day }}</h4></td>
+            </tr>
+            <tr>
+              <td><h4 class="price_for_days">{{ car.limit_per_week }}</h4></td>
+            </tr>
+            <tr>
+              <td><h4 class="price_for_days">{{ car.limit_per_two_weeks }}</h4></td>
+            </tr>
+            <tr>
+              <td><h4 class="price_for_days">{{ car.limit_per_month }}</h4></td>
+            </tr>
+            <tr>
+              <td><h4 class="price_for_days">{{ car.limit_per_year }}</h4></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 detail_about_car">
+        <div id="reserve"></div>
+        <div class="car_detail_block">
+          <form method="post">
+            {% csrf_token %}
+            <h4>{{ car.model }}</h4>
+            <div class="section-heading-line-left" style="margin-bottom: 20px"></div>
+            <input id="date_start" type="text" name="date_start" value="" readonly required>
+            <input id="date_end" type="text" name="date_end" value="" readonly required>
+            <div class="order_result">
+              <table class="car_detail_price">
+                <tbody>
+                <tr class="show-days" id="days">
+                  <td><h3>{% trans 'Doby' %}</h3></td>
+                  <td><input id="rent_days" value="1" class="controls" name="rent_days" readonly>
+                  </td>
+                </tr>
+                <tr class="show-month" id="price_day">
+                  <td><h3>{% trans 'Cena za dobę' %}</h3></td>
+                  <td id="price_intervals">
+                    {% for rp in rent_periods %}
+                      {% if rp.car == car %}
+                        {% if car.promotion %}
+                          {% with promotion=rp.price|mul:car.promotion|div:100|floatformat:0 %}
+                            <input id="rent_period_{{ forloop.counter }}" value="{{ rp.price|sub:promotion }}" readonly>
+                            <input id="regular_price_{{ forloop.counter }}" value="{{ rp.price }}" readonly>
+                          {% endwith %}
+                        {% else %}
+                          <input id="rent_period_{{ forloop.counter }}" value="{{ rp.price }}" readonly>
+                        {% endif %}
+                      {% endif %}
+                      <input hidden id="period_from_{{ forloop.counter }}" value="{{ rp.period.period_from }}">
+                      <input hidden id="period_to_{{ forloop.counter }}" value="{{ rp.period.period_to }}">
+                    {% endfor %}
+                    {% if car.promotion %}
+                      {% with promotion=car.price|mul:car.promotion|div:100|floatformat:0 %}
+                        <input id="price_per_day_month" value="{{ car.price|sub:promotion }}" readonly>
+                      {% endwith %}
+                      <input id="regular_price_per_day_month" value="{{ car.price }}" readonly>
+                      {% with promotion=car.month_price|mul:car.promotion|div:100|floatformat:0 %}
+                        <input id="price_month" value="{{ car.month_price|sub:promotion }}" readonly>
+                      {% endwith %}
+                    {% else %}
+                      <input id="price_per_day_month" value="{{ car.price }}" readonly>
+                      <input id="price_month" value="{{ car.month_price }}" readonly>
+                    {% endif %}
+                    <h4>{% trans 'zł' %}</h4>
+                  </td>
+                </tr>
+                <tr>
+                  <td><h3>{% trans 'Kaucja zwrotna' %}</h3></td>
+                  <td>
+                    <input id="actual_deposit" class="controls" name="actual_deposit" value="0" readonly>
+                    <h4>{% trans 'zł' %}</h4>
+                    <input id="deposit" class="controls hidden" name="deposit" value="{{ car.deposit }}" readonly>
+                    <input id="rent_deposit" class="controls hidden" name="rent_deposit" value="{{ car.rent_deposit }}" readonly>
+                    <div class="method_payment hidden">
+                      <input type="radio" id="card" class="change-price" name="group1" value="card_payment" checked>
+                      <label for="card">{% trans 'Płacę Kartą' %} <span>{% if car.is_rent_deposit is False %}{% trans 'bez kaucji' %}{% endif %}</span></label>
+                    </div>
+                  </td>
+                </tr>
+                {% if car.promotion %}
+                  <tr class="promotion-row">
+                    <td>
+                      <h3 class="text-uppercase">{% trans 'PROMOCJA' %} -{{ car.promotion }}%</h3>
+                    </td>
+                    <td>
+                      {% with promotion=car.month_price|mul:car.promotion|div:100|floatformat:0 %}
+                        <input id="promotion" class="controls" value="0" name="promotion" readonly><h4>{% trans 'zł' %}</h4>
+                      {% endwith %}
+                    </td>
+                  </tr>
+                {% endif %}
+                <tr class="show-limit">
+                  <td><h3>{% trans 'Całkowity limit km' %}</h3></td>
+                  <td id="limit_intervals">
+                    {% for rp in rent_periods %}
+                      {% if rp.car == car %}
+                        <input class="hidden" id="rent_period_limit_{{ forloop.counter }}" value="{{ rp.limit }}" readonly>
+                      {% endif %}
+                    {% endfor %}
+                    <input id="rent_period_limit" value="0" name="limit_day" readonly>
+                    <h4>{% trans 'km' %}</h4>
+                  </td>
+                </tr>
+                <tr class="non-working-hours-1 hide">
+                  <td>
+                    <h3>{% trans 'Wydanie samochodu poza godzinami pracy biura' %}</h3>
+                  </td>
+                  <td>
+                    <input id="before_non_working_hours" class="controls" value="{{ car.non_working_hours }}" name="before_non_working_hours" readonly><h4>{% trans 'zł' %}</h4>
+                  </td>
+                </tr>
+                <tr class="non-working-hours-2 hide">
+                  <td>
+                    <h3>{% trans 'Zwrot samochodu poza godzinami pracy biura' %}</h3>
+                  </td>
+                  <td>
+                    <input id="after_non_working_hours" class="controls" value="{{ car.non_working_hours }}" name="after_non_working_hours" readonly><h4>{% trans 'zł' %}</h4>
+                  </td>
+                </tr>
+                <tr>
+                  <td><h3 class="text-uppercase">{% trans 'Do zapłaty' %}</h3></td>
+                  <td>
+                    <input id="final_price" class="controls" value="0" name="final_price" readonly><h4>{% trans 'zł' %}</h4>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="info_result">
+                <div class="alert-extra-day">
+                  <span class="close">&#x2715</span>
+                  <h4><i class="fa fa-lg fa-info-circle"></i> Zwróć uwagę</h4>
+                  <p>Wybierając tę godzinę zwrotu samochodu, przekraczasz dobę wynajmu. Jeśli chcesz zwrócić samochód później w ten sam dzień, dodaj opcję Wynajem/zwrot auta poza godzinami pracy biura, lub dodaj kolejną dobę wynajmu.</p>
+                </div>
+                <button class="btn btn-default btn_order">{% trans 'Wynajmij' %}</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <a class="anchor" id="more"></a>
+  {% if car.important_information %}
+    <section class="section-grey accordion" style="padding-left:20px; padding-top: 20px; padding-bottom: 20px">
+      <div class="container">
+        <div class="row">
+          <dl>
+            <dt class="question js-accordion">
+              <button class="question__trigger" type="button">
+                <h3><i><img loading="lazy" src="../static/images/icon_info.png"></i>{% trans 'Ważne info - warto się zapoznać' %}</h3>
+                <i><img loading="lazy" class="icon-vector" src="../static/images/Vector%2021.png"></i>
+              </button>
+            </dt>
+            <dd class="answer">
+              <div class="answer__content information" style="padding-bottom: 20px">
+                <p>{{ car.important_information|safe }}</p>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+  <section class="section-grey detail_car full-content" style="padding-top: 0 !important;">
+    <div class="container car_detail">
+      <h1 class="text-center mobile-show" style="padding-left: 18px!important">{{ car.model }}</h1>
+      <div class="section-heading-line-left mob mobile-show" style="margin-left: 16px; margin-top: 5px; margin-left: 18px;"></div>
+      <div class="car_detail_about">
+        <h1 class="text-center desktop-show">{{ car.model }}</h1>
+        <div class="section-heading-line-left desktop-show line-about_car mb-40" style="width: 85px"></div>
+        <div class="about_car">{{ car.about|safe }}</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="fixed-button-car_info">
+    <div class="fixed_button second-btn" id="fixed_button">
+      <a href="#reserve">
+        <button class="button_fixed">{% trans 'Wynajmij' %}</button>
+      </a>
+      <a class="phone_fixed" href="tel:+48 720 889 788"><i class="fa fa-phone"></i></a>
+    </div>
+  </div>
+  <div class="circle-fixed-button">
+    {% include 'base/fixed-contact-button.html' %}
+  </div>
+{% endblock %}

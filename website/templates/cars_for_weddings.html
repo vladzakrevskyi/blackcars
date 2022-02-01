@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block head %}
+{% endblock %}
+{% block title %}{% trans 'BlackCars - Auto do ślubu' %} {% endblock %}
+{% block content %}
+  <section class="section-grey">
+    <div class="container">
+      <div class="col-12">
+        <h1>{% trans 'Auto do ślubu' %} </h1>
+        <div class="section-heading-line-left"></div>
+      </div>
+      <div class="col-12">
+        <p>{% trans 'Dzień ślubu jest jednym z najważniejszych dni w życiu każdej Młodej Pary. Wydarzeniu temu towarzyszy wiele emocji, a wspomnienia pozostaną na całe życie, dlatego też ważne jest, aby wszystko przebiegło idealnie, prawda? Wiedząc jak ważne jest to wydarzenie, oferujemy limuzyny najwyższej klasy, a także gwarantujemy pełen profesjonalizm oraz najwyższy poziom obsługi.' %}</p>
+        <p>{% trans 'Oferujemy Państwu wynajem luksusowego auta wraz z obsługą profesjonalnego kierowcy. Klient jest dla nas najważniejszy, dlatego też jesteśmy gotowi dostosować ofertę indywidualnie – w zależności do potrzeb. Wybór naszych usług daje gwarancję, że zostaną one zrealizowane na najwyższym poziomie. Zrobimy wszystko co w naszej mocy, aby uroczystość ta stała się jeszcze bardziej wyjątkowa.' %}</p>
+        <strong>{% trans 'Co obejmuje pakiet ślubny?' %}</strong>
+        <ul>
+          <li>{% trans 'Wynajem auta klasy premium,' %}</li>
+          <li>{% trans 'Usługi profesjonalnego szofera,' %}</li>
+          <li>{% trans 'Odbiór Młodej Pary z wyznaczonego miejsca,' %}</li>
+          <li>{% trans 'Przejazd Młodej Pary do kościoła lub Urzędu Stanu Cywilnego,' %}</li>
+          <li>{% trans 'Przejazd z miejsca zawarcia ślubu do lokalizacji, w której odbędzie się wesele,' %}</li>
+          <li>{% trans 'Tablice rejestracyjne „Młoda Para” oraz dekoracja pojazdu,' %}</li>
+          <li>{% trans 'Dojazd do 100 km od centrum Warszawy (powyżej wyliczany indywidualnie),' %}</li>
+          <li>{% trans 'Dostęp do świeżej wody,' %}</li>
+          <li>{% trans 'Prezent w postaci szampana.' %}</li>
+        </ul>
+        <p>{% trans 'Zadzwoń już dziś i zarezerwuj termin!' %}</p>
+      </div>
+    </div>
+  </section>
+  {% include 'base/fixed-contact-button.html' %}
+{% endblock %}

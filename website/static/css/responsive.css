@@ -1,0 +1,78 @@
+/* Medium Layout: 1280px. */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+
+
+}
+
+/* Tablet Layout: 768px. */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+
+}
+
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px) {
+    .banner-2-cont h1 {
+        font-size: 32px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 30px;
+        text-shadow: none;
+    }
+
+    .carousel-inner > .item > .carousel-caption h1 {
+        font-size: 32px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 30px;
+        text-shadow: none;
+    }
+
+    .carousel-inner > .item > .carousel-caption h1 span {
+        font-size: 32px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        color: #d21919;
+    }
+
+    .navbar-right {
+        float: left !important;
+        margin-left: 0px;
+    }
+
+}
+
+/* Wide Mobile Layout: 480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .banner-2-cont h1 {
+        font-size: 32px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 30px;
+        text-shadow: none;
+    }
+
+    .carousel-inner > .item > .carousel-caption h1 {
+        font-size: 32px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 30px;
+        text-shadow: none;
+    }
+
+    .carousel-inner > .item > .carousel-caption h1 span {
+        font-size: 32px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        color: #d21919;
+    }
+
+    .navbar-right {
+        float: left !important;
+        margin-left: 0px;
+    }
+}

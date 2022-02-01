@@ -1,0 +1,486 @@
+{% extends 'base/base.html' %}
+{% load mathfilters %}
+{% load thumbnail %}
+{% load static %}
+{% load i18n %}
+
+{% block head %}
+  {% if car.meta_description %}
+    <meta name="description" content="{{ car.meta_description }}">
+  {% endif %}
+{% endblock %}
+{% block title %}
+  {% if car.meta_title %}
+    {{ car.meta_title }}
+  {% else %}
+    {% trans 'BlackCars - Wynajem samochodów klasy premium' %}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <section class="section-grey start">
+    <div class="container reservation">
+      <form method="post">
+        {% csrf_token %}
+        <div class="col-xl-12 xol-lg-12 col-md-12 col-sm-12 col-xs-12 res">
+          <div class="col-lg-6 col-xl-6 col-md-6 col-xs-12 col-sm-12 reservation_form">
+            <h1 class="title_reservation">{% trans 'Rezerwacja' %}</h1>
+            <div class="section-heading-line-left" style="width: 85px"></div>
+            <div class="row car_detail_item" style="margin-top: 40px; border-radius: 10px;padding-left: 0">
+              <h3>{% trans 'Dane najemcy' %}</h3>
+            </div>
+            <div class="form-cont" style="min-height: 279px; margin-top: 30px">
+              <div class="col-xl-12 col-lg-12 col-md-12 row_form">
+                <div class="col-md-6 form_car_detail left-margin">
+                  <div class="form-group-2">
+                    <div class="controls">
+                      <label for="name">{% trans 'Imię i Nazwisko' %}</label>
+                      <input type="text" class="form-control" id="name" name="name"
+                             required onkeypress="noDigits(event)">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 form_car_detail">
+                  <div class="form-group-2">
+                    <div class="controls">
+                      <label for="nip">{% trans 'NIP' %}</label>
+                      <input type="text" class="form-control" id="nip" name="nip"
+                             onkeypress="return isNumberKey(event)">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 row_form">
+                <div class="col-md-6 form_car_detail left-margin">
+                  <div class="form-group-2">
+                    <div class="controls">
+                      <label for="street">{% trans 'Adres zameldowania' %}</label>
+                      <input type="text" class="form-control address" id="street" name="street" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 form_car_detail">
+                  <div class="form-group-2">
+                    <div class="controls">
+                      <label for="zip">{% trans 'Kod pocztowy' %}</label>
+                      <input type="tel" class="form-control" id="zip" name="zip" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 row_form">
+                <div class="col-md-6 form_car_detail left-margin">
+                  <div class="form-group-2">
+                    <div class="controls">
+                      <label for="city">{% trans 'Miejscowość' %}</label>
+                      <input type="text" class="form-control" id="city" name="city"
+                             required onkeypress="noDigits(event)">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 row_form">
+                <div class="col-md-6 form_car_detail left-margin">
+                  <div class="form-group-2">
+                    <div class="controls box">
+                      <label for="phone">{% trans 'Telefon' %}</label>
+                      <input type="tel" class="form-control" id="phone" name="phone" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 form_car_detail ">
+                  <div class="form-group-2">
+                    <div class="controls">
+                      <label for="email">{% trans 'E-mail' %}</label>
+                      <input type="email" class="form-control" id="email" name="email"
+                             required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 row_form">
+                <div class="col-md-6 form_car_detail left-margin">
+                  <div class="form-group-2">
+                    <div class="controls">
+                      <label for="license">{% trans 'Numer prawa jazdy' %}</label>
+                      <input type="text" class="form-control" id="license" name="license"
+                             required>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 form_car_detail">
+                  <div class="form-group-2">
+                    <div class="controls">
+                      <label for="pesel">{% trans 'PESEL' %}</label>
+                      <input type="tel" class="form-control" id="pesel" name="pesel"
+                             maxlength="11" required
+                             onkeypress="return isNumberKey(event)">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-xl-4 col-md-4 col-xs-12 col-sm-12 reservation_section">
+            <div class="car_detail_block">
+              <div class="car-img">
+                {% thumbnail car.car_photo "600x350" crop="center" as im %}
+                  <img loading="lazy" src="{{ im.url }}" alt="img.jpg" class="img-responsive">
+                {% endthumbnail %}
+              </div>
+              <a href="{% url 'car-detail' car_slug=car.slug_car %}">
+                <h4>
+                  <textarea class="controls" id="car_name" name="car_name" placeholder="{{ car.model }}" value="{{ car.model }}" readonly></textarea>
+                  <input class="hidden" id="car_name" name="car_name" value="{{ car.model }}">
+                </h4>
+                <div class="section-heading-line-left" style="margin-bottom: 20px"></div>
+              </a>
+              <div class="row_label">
+              </div>
+              <input class="controls" id="date_start" type="text" name="date_start"
+                     placeholder="{% trans 'Odbiór' %}" value="{{ date_start }}"
+                     readonly required>
+              <div class="row_label">
+              </div>
+              <input class="controls" id="date_end" type="text" name="date_end"
+                     placeholder="{% trans 'Zwrot' %}" value="{{ date_end }}"
+                     readonly required>
+              <table class="car_detail_price">
+                <tbody>
+                <tr class="show-days" id="days">
+                  <td><h3>{% trans 'Doby' %}</h3></td>
+                  <td><input id="rent_days" value="1" class="controls" name="rent_days" readonly></td>
+                </tr>
+                <tr class="show-month" id="price_day">
+                  <td><h3>{% trans 'Cena za dobę' %}</h3></td>
+                  <td id="price_intervals">
+                    {% for rp in rent_periods %}
+                      {% if rp.car == car %}
+                        {% if car.promotion %}
+                          {% with promotion=rp.price|mul:car.promotion|div:100|floatformat:0 %}
+                            <input id="rent_period_{{ forloop.counter }}" value="{{ rp.price|sub:promotion }}" readonly>
+                            <input id="regular_price_{{ forloop.counter }}" value="{{ rp.price }}" readonly>
+                          {% endwith %}
+                        {% else %}
+                          <input id="rent_period_{{ forloop.counter }}" value="{{ rp.price }}" readonly>
+                        {% endif %}
+                      {% endif %}
+                      <input hidden id="period_from_{{ forloop.counter }}" value="{{ rp.period.period_from }}">
+                      <input hidden id="period_to_{{ forloop.counter }}" value="{{ rp.period.period_to }}">
+                    {% endfor %}
+                    {% if car.promotion %}
+                      {% with promotion=car.price|mul:car.promotion|div:100|floatformat:0 %}
+                        <input id="price_per_day_month" value="{{ car.price|sub:promotion }}" readonly>
+                      {% endwith %}
+                      <input id="regular_price_per_day_month" value="{{ car.price }}" readonly>
+                      {% with promotion=car.month_price|mul:car.promotion|div:100|floatformat:0 %}
+                        <input id="price_month" value="{{ car.month_price|sub:promotion }}" readonly>
+                      {% endwith %}
+                    {% else %}
+                      <input id="price_per_day_month" value="{{ car.price }}" readonly>
+                      <input id="price_month" value="{{ car.month_price }}" readonly>
+                    {% endif %}
+                    <h4>{% trans 'zł' %}</h4>
+                  </td>
+                </tr>
+                <tr>
+                  <td><h3>{% trans 'Kaucja zwrotna' %}</h3></td>
+                  <td>
+                    <input id="actual_deposit" class="controls" name="actual_deposit" value="0" readonly>
+                    <h4>{% trans 'zł' %}</h4>
+                    <input id="deposit" class="controls hidden" name="deposit" value="{{ car.deposit }}" readonly>
+                    <input id="rent_deposit" class="controls hidden" name="rent_deposit" value="{{ car.rent_deposit }}" readonly>
+                  </td>
+                </tr>
+                {% if car.promotion %}
+                  <tr class="promotion-row">
+                    <td>
+                      <h3 class="text-uppercase">{% trans 'PROMOCJA' %} -{{ car.promotion }}%</h3>
+                    </td>
+                    <td>
+                      {% with promotion=car.month_price|mul:car.promotion|div:100|floatformat:0 %}
+                        <input id="promotion" class="controls" value="0" name="promotion" readonly><h4>{% trans 'zł' %}</h4>
+                      {% endwith %}
+                    </td>
+                  </tr>
+                {% endif %}
+                <tr class="show-limit">
+                  <td><h3>{% trans 'Całkowity limit km' %}</h3></td>
+                  <td id="limit_intervals">
+                    {% for rp in rent_periods %}
+                      {% if rp.car == car %}
+                        <input class="hidden" id="rent_period_limit_{{ forloop.counter }}" value="{{ rp.limit }}" readonly>
+                      {% endif %}
+                    {% endfor %}
+                    <input id="rent_period_limit" value="0" name="limit_day" readonly>
+                    <h4>{% trans 'km' %}</h4>
+                  </td>
+                </tr>
+                <tr class="non-working-hours-1 hide">
+                  <td>
+                    <h3>{% trans 'Wydanie samochodu poza godzinami pracy biura' %}</h3>
+                  </td>
+                  <td>
+                    <input id="before_non_working_hours" class="controls" value="{{ car.non_working_hours }}" name="before_non_working_hours" readonly><h4>{% trans 'zł' %}</h4>
+                  </td>
+                </tr>
+                <tr class="non-working-hours-2 hide">
+                  <td>
+                    <h3>{% trans 'Zwrot samochodu poza godzinami pracy biura' %}</h3>
+                  </td>
+                  <td>
+                    <input id="after_non_working_hours" class="controls" value="{{ car.non_working_hours }}" name="after_non_working_hours" readonly><h4>{% trans 'zł' %}</h4>
+                  </td>
+                </tr>
+                <tr>
+                  <td><h3>{% trans 'Opcje dodatkowe łącznie' %}</h3></td>
+                  <td>
+                    <input id="extra_services" class="controls" name="extra_services" value="0" readonly>
+                    <h4>{% trans 'zł' %}</h4>
+                  </td>
+                </tr>
+                <tr>
+                  <td><h3 class="text-uppercase">{% trans 'Do zapłaty' %}</h3></td>
+                  <td>
+                    <input id="rent_price" name="rent_price" type="hidden">
+                    <input id="final_price" name="final_price" value="0" class="controls" readonly>
+                    <h4>{% trans 'zł' %}</h4>
+                  </td>
+                </tr>
+                </tbody>
+                <input class="controls" style="display: none" id="reservation_code" name="reservation_code" value="" readonly>
+              </table>
+              <div class="info_result">
+                <div class="alert-extra-day">
+                  <span class="close">&#x2715</span>
+                  <h4><i class="fa fa-lg fa-info-circle"></i> Zwróć uwagę</h4>
+                  <p>Wybierając tę godzinę zwrotu samochodu, przekraczasz dobę wynajmu. Jeśli chcesz zwrócić samochód później w ten sam dzień, dodaj opcję Wynajem/zwrot auta poza godzinami pracy biura, lub dodaj kolejną dobę wynajmu.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-12 xol-lg-12 col-md-12 col-sm-12 col-xl-12 options_plus">
+          <div class="row car_detail_item">
+            <h3>{% trans 'Dodatkowo' %}</h3>
+          </div>
+
+          <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12 col-sm-12 adding_options_block input_group">
+            {% for el in option_reservation %}
+              {% if el.choise == 'W cenie' %}
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 option_plus">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-9 item_options left-side vertical-align-container {% if el.desc %}with-description{% endif %}"
+                       style="text-align: left; padding: 0">
+                    <label for="check">
+                      <input class="options hidden select" id="option" name="selected" value="{{ el.title }}">
+                      {{ el.title }}
+                    </label>
+                    {% if el.desc %}
+                      <div class="option-description">
+                        <small>{{ el.desc }}</small>
+                      </div>
+                    {% endif %}
+                  </div>
+                  <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-xs-3 item_options vertical-align-container option-price"
+                       style="text-align: right; padding-left: 0">
+                    <p class="vertical-align">{% trans 'W cenie' %}</p>
+                  </div>
+                  <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1 item_options vertical-align-container o-item"
+                       style="text-align: right; padding: 0">
+                    <input id="check" name="selected" type="checkbox"
+                           class="change-price custom_checkbox vertical-align" checked disabled>
+                  </div>
+                </div>
+              {% else %}
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 option_plus">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-9 item_options left-side vertical-align-container {% if el.desc %}with-description{% endif %}"
+                       style="text-align: left; padding: 0">
+                    <label class="option_label">
+                      <input class="options hidden" id="option" name="" value="{{ el.title }}">{{ el.title }}
+                    </label>
+                    {% if el.desc %}
+                      <div class="option-description">
+                        <small>{{ el.desc }}</small>
+                      </div>
+                    {% endif %}
+                  </div>
+                  {% if el.choise_price == 'Cena pojedyncza' %}
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-xs-3 item_options vertical-align-container option-price"
+                         style="text-align: right; padding-left: 0">
+                      <p class="vertical-align">{{ el.price }} {% trans 'zł' %}</p>
+                    </div>
+                  {% else %}
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-xs-3 item_options vertical-align-container option-price"
+                         style="text-align: right; padding-left: 0">
+                      <p class="vertical-align">{{ el.price }} {% trans 'zł/db' %}</p>
+                    </div>
+                  {% endif %}
+                  {% if el.choise_price == 'Cena pojedyncza' %}
+                    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1 item_options vertical-align-container op_item"
+                         style="text-align: right; padding: 0">
+                      <input name="check" id="optionss" type="checkbox"
+                             class="change-price select per-rent custom_checkbox vertical-align"
+                             value="{{ el.price }}zł - {{ el.title }}">
+                    </div>
+                  {% else %}
+                    <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1 item_options opt_item vertical-align-container"
+                         style="text-align: right; padding: 0">
+                      <input name="" id="optionss" type="checkbox"
+                             class="change-price select per-day custom_checkbox vertical-align"
+                             value="{{ el.price }}zł/db - {{ el.title }}">
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 option_plus non-working-hours">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-9 item_options left-side vertical-align-container with-description" style="text-align: left; padding: 0">
+                <label class="option_label">
+                  <input class="options hidden" id="option" name="" value="{% trans 'Wynajem / zwrot auta poza godzinami pracy biura' %}">
+                  {% trans 'Wynajem / zwrot auta poza godzinami pracy biura' %}
+                </label>
+                <div class="option-description">
+                  <small>{% trans 'Pon. - pt. 09:00 - 19:00, sob. 10:00 - 15:00' %}</small>
+                </div>
+              </div>
+              <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-xs-3 item_options vertical-align-container option-price" style="text-align: right; padding-left: 0">
+                <p class="vertical-align">{{ car.non_working_hours }} {% trans 'zł' %}</p>
+              </div>
+              <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1 item_options vertical-align-container op_item" style="text-align: right; padding: 0">
+                <input name="check" id="optionss" type="checkbox"
+                       class="change-price select per-rent custom_checkbox vertical-align"
+                       value="{{ car.non_working_hours }}{% trans 'zł' %} - {% trans 'Wynajem / zwrot auta poza godzinami pracy biura' %}">
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-12 col-lg-12 col-md-12 col-xs-12 col-sm-12 payment">
+            <div class="row car_detail_item">
+              <h3>{% trans 'Platność' %}</h3>
+            </div>
+            <div class="col-xl-7 xol-lg-7 col-md-7 col-sm-12 col-xs-12 checking_payment_method">
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 option_plus">
+                <div class="method_payment">
+                  <div class="col-lg-10 col-xl-10 col-md-10 col-sm-10 col-xs-10 option_payment">
+                    <label for="card">
+                      <input name="pay" class="pays hidden" id="pay_card" value="{% trans 'Placę kartą - Niska Kaucja' %}">
+                      {% trans 'Placę kartą - Niska Kaucja' %}
+                      <span> {% if car.is_rent_deposit is False %}{% trans 'bez kaucji' %}{% endif %}</span>
+                    </label>
+                    <input name="text_pay" class="hidden text_pay_method" id="card_pay_method"
+                           value="{% trans 'Upewnij się, że masz wystarczająco środków na karcie. W najbliższym czasie obciążymy Państwa kartę kwotą podaną podczas rezerwacji' %}">
+                  </div>
+                  <div class="col-lg-2 col-xl-2 col-md-2 col-sm-2 col-xs-2 card" style="padding-left: 0">
+                    <input type="radio" id="card" class="change-price custom_checkbox" name="group1" value="card_payment" checked>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 option_plus">
+                <div class="method_payment">
+                  <div class="col-lg-10 col-xl-10 col-md-10 col-sm-10 col-xs-10 option_payment">
+                    <label for="cash">
+                      <input name="" class="pays hidden" id="pay_cash" value="{% trans 'Płacę przy odbiorze' %}">{% trans 'Płacę przy odbiorze' %}
+                    </label>
+                    <input name="" class="hidden text_pay_method" id="cash_pay_method"
+                           value="{% trans 'Zapłacisz wygodnie przy odbiorze auta gotówką lub kartą płatniczą. Akceptujemy karty płatnicze Visa, Mastercard.' %}">
+                  </div>
+                  <div class="col-lg-2 col-xl-2 col-md-2 col-sm-2 col-xs-2" style="padding-left: 0">
+                    <input type="radio" id="cash" class="change-price custom_checkbox" name="group1" value="cash_payment">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 data_payment">
+          <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12 cash_payment method" id="cash_payment" style="display: none">
+            <h5>{% trans 'Płace przy odbiorze - Akceptujemy płatności kartą, gotówką i przelewem.' %}</h5>
+          </div>
+          <div class="card_payment method" id="card_payment">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 card_number">
+              <label>{% trans 'Numer karty płatniczej' %}</label>
+              <input class="card_data form-control" type="tel" id="card_number" name="card_number"
+                     maxlength="19" onkeypress="return isNumberKey(event)">
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-7 col-xs-7 date_cvv">
+              <label>{% trans 'Ważność' %}</label>
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0">
+                <div class="col-lg-4 col-xl-4 col-md-4 col-sm-4 col-xs-4"
+                     style="padding-left: 0; padding-right: 5px">
+                  <select class="card_data form-control" type="text" id="card_month" name="card_month">
+                    <option disabled selected></option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                  </select>
+                </div>
+                <div class="col-lg-8 col-xl-8 col-md-8 col-sm-8 col-xs-8 date_card"
+                     style="padding-right: 0; padding-left: 5px">
+                  <select class="card_data form-control year" type="text" id="card_year" name="card_year">
+                    <option selected disabled></option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-5 col-xs-5 cvv"><label>{% trans 'Kod CVV' %}</label>
+              <input class="card_data form-control" type="tel" id="card_cvv" name="card_cvv" maxlength="3" onkeypress="return isNumberKey(event)">
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 xol-xs-12 remarks form-cont">
+          <div class="row car_detail_item">
+            <h3>{% trans 'Zostaw wiadomość' %}</h3>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <textarea class="form-control" id="remarks" name="remarks" rows="2" placeholder="Twoja wiadomość"></textarea>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 xol-xs-12 accept_rules">
+          <input class="form-check-input custom_checkbox" type="checkbox" id="agree" name="agree">
+          <label>{% trans 'Znam i akceptuję' %} <a href="{% url 'regulations' %}" style="color: #d8b074">{% trans 'regulamin' %}</a> {% trans 'oraz' %}
+            <a href="{% url 'privacy_policy' %}" style="color: #d8b074">{% trans 'politykę prywatności blackcars.pl' %}</a>
+            {% trans 'i wyrażam zgodę na obciążenie mojej karty płatniczej kosztem najmu oraz kosztem przyszłych transakcji.' %}</label>
+        </div>
+        <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12 send">
+          <input type="submit" class="btn btn-primary btn-xl contact_button" value="{% trans 'Rezerwuję' %}" disabled>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/imask"></script>
+  <script>
+      IMask(document.querySelector('input[name="zip"]'), {mask: '00-000'});
+  </script>
+  <script>
+      var cur_year = new Date().getFullYear();
+      var next_year = new Date().getFullYear() + 10;
+      var obj = document.getElementById('card_year');
+      for (var i = cur_year; i <= next_year; i++) {
+          opt = document.createElement('option');
+          opt.value = i;
+          opt.text = i;
+          obj.appendChild(opt);
+      }
+
+
+      function getRandomInt(min, max) {
+          return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      var today = new Date();
+      let day = ("0" + today.getDate()).slice(-2);
+      let month = ("0" + (today.getMonth() + 1)).slice(-2);
+      var date = today.getFullYear()+""+(month)+""+(day);
+      document.getElementById('reservation_code').value = date + today.getHours() + today.getMinutes();
+  </script>
+  {% include 'base/fixed-contact-button.html' %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+
+{% block head %}
+{% endblock %}
+{% block title %} {% trans 'BlackCars - Wynajem samochodów klasy premium' %} {% endblock %}
+{% block content %}
+    <section class="section-grey success_reservation">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>OOOPS....</h2>
+                    <h4>{% trans 'Coś poszło nie tak.' %}<br> {% trans 'Proszę skontaktować się z nami.' %}</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'base/fixed-contact-button.html' %}
+{% endblock %}

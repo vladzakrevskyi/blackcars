@@ -1,0 +1,167 @@
+{% extends 'base/base.html' %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block head %}
+<meta name="robots" content="noindex">
+{% endblock %}
+{% block title %} BlackCars - Wynajem samochodów klasy premium {% endblock %}
+{% block content %}
+  <section class="section-grey regulations">
+    <div class="container">
+      <div class="col-12 privacy_title">
+        <h3>Regulamin serwisu</h3>
+        <div class="section-heading-line-left"></div>
+        <br>
+        <h4><strong>&sect;1. Definicje</strong></h4>
+        <ol>
+          <li>&bdquo;<strong>Regulamin</strong>&rdquo; &ndash; niniejszy dokument;</li>
+          <li>&bdquo;<strong>Serwis</strong>&rdquo; &ndash; rozumie się przez to serwis internetowy, zlokalizowany pod adresem https://blackcars.pl/, wraz z podstronami;</li>
+          <li>&bdquo;<strong>Polityka Prywatności</strong>&rdquo; rozumie się przez to politykę prywatności Serwisu, dostępną w zakładce Polityka Prywatności;</li>
+          <li>&bdquo;<strong>Usługodawca</strong>&rdquo; &ndash; rozumie się przez to 8COLOR SERVICES SP. Z O.O. z siedzibą w Warszawa, adres: ul. J. Zaruby 9, 02-796 Warszawa, wpisana do rejestru przedsiębiorc&oacute;w Krajowego Rejestru Sądowego, prowadzonego przez Sąd Rejonowy w , Wydział Gospodarczy KRS, pod numerem KRS: 0000780209, NIP: 9512481898, REGON: 38300260500000</li>
+          <li>&bdquo;<strong>Biuro Obsługi Klienta</strong>&rdquo;&ndash; rozumie się przez to część struktury organizacyjnej Usługodawcy, kt&oacute;ra wykonuje przewidziane Regulaminem czynności obsługi Użytkownika; kontakt z Biurem Obsługi Klienta możliwy jest za pośrednictwem poczty elektronicznej: office@blackcars.pll oraz pod numerem telefonu: 720 889 788, 24 godziny na dobę 365 dni w roku.</li>
+          <li>&bdquo;<strong>Użytkownik</strong>&rdquo; &ndash; rozumie się przez to pełnoletnią osobę fizyczną, osobę prawną oraz jednostkę organizacyjną nieposiadającą osobowości prawnej, lecz mogącą we własnym imieniu nabywać prawa i zaciągać zobowiązania, kt&oacute;ra korzysta z Serwisu lub Usługi;</li>
+          <li>&bdquo;<strong>Klient</strong>&rdquo; &ndash; rozumie się przez to Użytkownika, kt&oacute;ry rezerwuje najem pojazdu;</li>
+          <li>&bdquo;<strong>Konsument</strong>&rdquo; &ndash; rozumie się przez to osobę fizyczną dokonującą z Usługodawcą czynności prawnej niezwiązanej bezpośrednio z jej działalnością gospodarczą lub zawodową;</li>
+          <li>&bdquo;<strong>Usługa</strong>&rdquo; &ndash; rozumie się przez to jedną z oferowanych przez Usługodawcę usług;</li>
+          <li>&bdquo;<strong>Newsletter</strong>&rdquo; &ndash; rozumie się przez to bezpłatny biuletyn informacyjny Serwisu, kt&oacute;ry Użytkownik może zam&oacute;wić i otrzymywać periodycznie na wskazany adres poczty elektronicznej.</li>
+        </ol>
+        <h4 data-fontsize="13" data-lineheight="19.5px"><strong>&sect;2. Postanowienia og&oacute;lne</strong></h4>
+        <ol>
+          <li>Serwis prowadzony jest przez Usługodawcę.</li>
+          <li>Regulamin określa zasady korzystania z Serwisu, rodzaj i zakres świadczonych Usług, w tym Usług świadczonych drogą elektroniczną, warunki rezerwacji najmu pojazdu oraz zawierania, wykonywania i rozwiązywania um&oacute;w, postępowanie reklamacyjne, rozpatrywanie spor&oacute;w, a także zasady ochrony danych osobowych.</li>
+          <li>Treść Regulaminu dostępna jest w Serwisie w zakładce &bdquo;Regulamin&rdquo; i może zostać w każdym czasie utrwalona przez Użytkownika poprzez zapisanie lub wydrukowanie strony. Na żądanie Użytkownika Usługodawca dostarczy mu treść Regulaminu w formie pliku elektronicznego.</li>
+          <li>Użytkownik korzystający z Serwisu zobowiązany jest powstrzymać się od czynności niezgodnych z powszechnie obowiązującymi przepisami prawa, w szczeg&oacute;lności od dostarczania treści o charakterze bezprawnym lub nieuprawnionego ingerowania w zawartość Serwisu.</li>
+          <li>Usługodawca świadczy drogą elektroniczną Usługi polegające w szczeg&oacute;lności na umożliwieniu Użytkownikowi rejestracji konta w Serwisie, zam&oacute;wienia Newslettera, a także udostępnia Użytkownikowi formularz kontaktowy oraz formularz rezerwacji najmu pojazdu.</li>
+          <li>W celu zapewnienia bezpieczeństwa przekazu komunikat&oacute;w i danych Usługodawca podejmuje środki techniczne i organizacyjne odpowiednie do stopnia zagrożenia bezpieczeństwa świadczonej Usługi, w szczeg&oacute;lności środki służące zapobieganiu pozyskiwania i modyfikacji przez osoby nieuprawnione danych osobowych przesyłanych w Internecie.</li>
+        </ol>
+        <h4 data-fontsize="13" data-lineheight="19.5px"><strong>&sect;3. Wymagania techniczne</strong></h4>
+        <ol>
+          <li>W celu korzystania z Serwisu Użytkownik powinien posiadać:
+            <ol>
+              <li>komputer lub inne urządzenie multimedialne z dostępem do sieci Internet;</li>
+              <li>system operacyjny umożliwiający uruchomienie przeglądarki internetowej;</li>
+              <li>przeglądarkę internetową, przy czym dla prawidłowego funkcjonowania Serwisu Internetowego przeglądarka powinna akceptować pliki typu cookie;</li>
+            </ol>
+          </li>
+          <li>Użytkownik rejestrujący konto w Serwisie, zamawiający Newsletter, bądź rezerwujący najem pojazdu powinien dodatkowo posiadać adres poczty elektronicznej.</li>
+        </ol>
+        <h4 data-fontsize="13" data-lineheight="19.5px"><strong>&sect;4. Zawartość Serwisu</strong></h4>
+        <ol>
+          <li>Ceny określone w Serwisie wyrażone są w złotych polskich i zawierają podatku od towar&oacute;w i usług (VAT).</li>
+          <li>Rodzaje oraz właściwości pojazd&oacute;w, kt&oacute;rych najem może zostać zarezerwowany, a także stawki najmu, określone są w Serwisie.</li>
+          <li>Przedstawione zdjęcia pojazd&oacute;w są&nbsp;poglądowymi, faktyczny wygład pojazdu lub/i go wyposażenie może się r&oacute;żnić od przedstawionego na zdjęciach.</li>
+        </ol>
+        <h4 data-fontsize="13" data-lineheight="19.5px"><strong>&sect;5. Rezerwacja najmu pojazdu</strong></h4>
+        <ol>
+          <li>Rezerwacja najmu pojazdu jest możliwa w ramach jego dostępności.</li>
+          <li>Rezerwacje przyjmowane i realizowane są przez Biuro Obsługi Klienta.</li>
+          <li>Klient może zarezerwować najem pojazdu po zalogowaniu się do swojego konta.</li>
+          <li>Proces rezerwacji rozpoczyna się od wyboru pojazdu i kliknięcia przycisku &bdquo;Rezerwuj teraz&rdquo;, znajdującego się w karcie opisu pojazdu. Po wybraniu pojazdu należy finalizować rezerwację, podejmując kolejne czynności techniczne, w oparciu o wyświetlane Klientowi komunikaty.</li>
+          <li>W celu rezerwacji najmu pojazdu Klient podaje dane określone w formularzu rezerwacji.</li>
+          <li>Rezerwacja wymaga zapoznania się i zaakceptowania Regulaminu oraz zasad przetwarzania danych osobowych (Polityki Prywatności).</li>
+          <li>Dane podawane w trakcie rezerwacji najmu pojazdu przetwarzane są w celu zapewnienia rezerwacji oraz przygotowania umowy najmu pojazdu. Podstawą prawną przetwarzania danych jest zgoda Klienta. Podanie danych jest dobrowolne, jednakże podanie danych określonych w formularzu rezerwacji jako wymagane jest niezbędne dla dokonania rezerwacji i p&oacute;źniejszego zawarcia umowy (bez podania tych danych nie będzie możliwa rezerwacja najmu pojazdu). Dane przetwarzane będą przez czas niezbędny dla zapewnienia rezerwacji lub do wycofania zgody.</li>
+          <li>Rezerwacja, dla swej ważności, wymaga potwierdzenia przez Usługodawcę dostępności pojazdu. Usługodawca potwierdza dostępność pojazdu poprzez wysłanie do Klienta wiadomości za pośrednictwem poczty elektronicznej (e-mail) lub telefonicznie.</li>
+          <li>Do zawarcia umowy najmu pojazdu dochodzi w dniu określonym jako początek najmu, na podstawie odrębnych oświadczeń stron, złożonych z zachowaniem formy pisemnej. Pozostałe warunki najmu określa umowa.</li>
+          <li>Najp&oacute;źniej w chwili odbioru pojazdu Klient zobowiązany jest do uiszczenia opłaty za cały okres najmu.</li>
+        </ol>
+        <h4 data-fontsize="13" data-lineheight="19.5px"><strong>&sect;6. Rezygnacja z rezerwacji najmu pojazdu, zmiana i poprawienie błędnych danych w rezerwacji</strong></h4>
+        <ol>
+          <li>Rezygnacji z najmu pojazdu, zmian oraz poprawienia błędnych danych w rezerwacji Klient może dokonać do chwili zawarcia umowy najmu pojazdu.</li>
+          <li>W celu rezygnacji z rezerwacji, zmiany lub poprawienia błędnych danych w rezerwacji, należy skontaktować się z Biurem Obsługi Klienta.</li>
+          <li>W przypadku rezygnacji z najmu pojazdu usługodawca zastrzega sobie możliwość zatrzymania 50% wartości wynajmu.</li>
+        </ol>
+        <h4 data-fontsize="13" data-lineheight="19.5px"><strong>&sect;7. Opłacenie wynajmu</strong></h4>
+        <ol>
+          <li>Klient, po potwierdzeniu przez Usługodawcę rezerwacji, może opłacić najem pojazdu w następujący spos&oacute;b:
+            <ol>
+              <li>got&oacute;wka lub karta płatnicza, przy odbiorze pojazdu.</li>
+              <li>przez obciążenia Serwisem karty platniczej Klienta podanej przy rezerwacji</li>
+            </ol>
+          </li>
+        </ol>
+        <h4 data-fontsize="13" data-lineheight="19.5px"><strong>&sect;8. Odstąpienie od umowy zawartej na odległość lub poza lokalem przedsiębiorstwa (dotyczy Konsumenta)</strong></h4>
+        <ol>
+          <li>Konsument, kt&oacute;ry zawarł ze Usługodawcą umowę na odległość lub poza lokalem przedsiębiorstwa, może w terminie 14 dni odstąpić od niej bez podawania przyczyny i bez ponoszenia koszt&oacute;w.</li>
+          <li>Bieg terminu do odstąpienia od umowy rozpoczyna się od dnia zawarcia umowy.</li>
+          <li>Do zachowania terminu wystarczy wysłanie oświadczenia przed jego upływem.</li>
+          <li>Konsument może odstąpić od umowy, składając Usługodawcy oświadczenie o odstąpieniu od umowy. Oświadczenie można złożyć na formularzu, kt&oacute;rego wz&oacute;r stanowi załącznik nr 1 do Regulaminu.</li>
+          <li>Usługodawca zapewnia ponadto możliwość złożenia oświadczenia o odstąpieniu od umowy drogą elektroniczną. W takim przypadku Konsument może także odstąpić od umowy przy wykorzystaniu wzoru formularza odstąpienia od umowy, stanowiącego załącznik nr 1 do Regulaminu, poprzez wysłanie go za pośrednictwem poczty elektronicznej do Biura Obsługi Klienta.</li>
+          <li>W przypadku odstąpienia od umowy, umowę uważa się za niezawartą. Jeżeli Konsument złożył oświadczenie o odstąpieniu od umowy zanim Usługodawca przyjął jego ofertę, oferta przestaje wiązać.</li>
+          <li>Usługodawca niezwłocznie, nie p&oacute;źniej niż w terminie 14 dni od dnia otrzymania oświadczenia Konsumenta o odstąpieniu od umowy, zwraca Konsumentowi wszystkie dokonane przez niego płatności.</li>
+          <li>Usługodawca dokonuje zwrotu płatności przy użyciu takiego samego sposobu zapłaty, jakiego użył Konsument, chyba że Konsument wyraźnie zgadza się na inny spos&oacute;b zwrotu, kt&oacute;ry nie wiąże się dla niego z żadnymi kosztami.</li>
+          <li>W chwili odstąpienia przez Konsumenta od umowy zawartej na odległość lub poza lokalem przedsiębiorstwa wygasają powiązane z nią umowy dodatkowe zawarte przez Konsumenta, jeżeli na ich podstawie świadczenie jest spełniane przez Usługodawcę lub osobę trzecią na podstawie porozumienia z Usługodawcą. Konsument nie ponosi koszt&oacute;w związanych z wygaśnięciem tych um&oacute;w. Jeżeli umowa dodatkowa została zawarta z osobą trzecią, Usługodawca informuje tę osobę o odstąpieniu przez Konsumenta od umowy.</li>
+          <li>Prawo odstąpienia od umowy zawartej poza lokalem przedsiębiorstwa lub na odległość nie przysługuje Konsumentowi w odniesieniu do um&oacute;w:
+            <ol>
+              <li>o świadczenie usług, jeżeli Usługodawca wykonał w pełni usługę za wyraźną zgodą Konsumenta, kt&oacute;ry został poinformowany przed rozpoczęciem świadczenia, że po spełnieniu świadczenia przez Usługodawcę utraci prawo odstąpienia od umowy;</li>
+              <li>w kt&oacute;rej cena lub wynagrodzenie zależy od wahań na rynku finansowym, nad kt&oacute;rymi Usługodawca nie sprawuje kontroli, i kt&oacute;re mogą wystąpić przed upływem terminu do odstąpienia od umowy;</li>
+              <li>w kt&oacute;rej przedmiotem świadczenia jest rzecz nieprefabrykowana, wyprodukowana według specyfikacji Konsumenta lub służąca zaspokojeniu jego zindywidualizowanych potrzeb;</li>
+              <li>w kt&oacute;rej przedmiotem świadczenia jest rzecz ulegająca szybkiemu zepsuciu lub mająca kr&oacute;tki termin przydatności do użycia;</li>
+              <li>w kt&oacute;rej przedmiotem świadczenia jest rzecz dostarczana w zapieczętowanym opakowaniu, kt&oacute;rej po otwarciu opakowania nie można zwr&oacute;cić ze względu na ochronę zdrowia lub ze względ&oacute;w higienicznych, jeżeli opakowanie zostało otwarte po dostarczeniu;</li>
+              <li>w kt&oacute;rej przedmiotem świadczenia są rzeczy, kt&oacute;re po dostarczeniu, ze względu na sw&oacute;j charakter, zostają nierozłącznie połączone z innymi rzeczami;</li>
+              <li>w kt&oacute;rej przedmiotem świadczenia są napoje alkoholowe, kt&oacute;rych cena została uzgodniona przy zawarciu umowy sprzedaży, a kt&oacute;rych dostarczenie może nastąpić dopiero po upływie 30 dni i kt&oacute;rych wartość zależy od wahań na rynku, nad kt&oacute;rymi Usługodawca nie ma kontroli;</li>
+              <li>w kt&oacute;rej Konsument wyraźnie żądał, aby Usługodawca do niego przyjechał w celu dokonania pilnej naprawy lub konserwacji; jeżeli Usługodawca świadczy dodatkowo inne usługi niż te, kt&oacute;rych wykonania Konsument żądał, lub dostarcza rzeczy inne niż części zamienne niezbędne do wykonania naprawy lub konserwacji, prawo odstąpienia od umowy przysługuje Konsumentowi w odniesieniu do dodatkowych usług lub rzeczy;</li>
+              <li>w kt&oacute;rej przedmiotem świadczenia są nagrania dźwiękowe lub wizualne albo programy komputerowe dostarczane w zapieczętowanym opakowaniu, jeżeli opakowanie zostało otwarte po dostarczeniu;</li>
+              <li>o dostarczanie dziennik&oacute;w, periodyk&oacute;w lub czasopism, z wyjątkiem umowy o prenumeratę;</li>
+              <li>zawartej w drodze aukcji publicznej;</li>
+              <li>o świadczenie usług w zakresie zakwaterowania, innych niż do cel&oacute;w mieszkalnych, przewozu rzeczy, najmu samochod&oacute;w, gastronomii, usług związanych z wypoczynkiem, wydarzeniami rozrywkowymi, sportowymi lub kulturalnymi, jeżeli w umowie oznaczono dzień lub okres świadczenia usługi;</li>
+              <li>o dostarczanie treści cyfrowych, kt&oacute;re nie są zapisane na nośniku materialnym, jeżeli spełnianie świadczenia rozpoczęło się za wyraźną zgodą Konsumenta przed upływem terminu do odstąpienia od umowy i po poinformowaniu go przez Usługodawcę o utracie prawa odstąpienia od umowy.</li>
+            </ol>
+          </li>
+          <li>Dane przetwarzane będą w celu zrealizowania prawa Konsumenta. Podstawą prawną przetwarzania danych jest wypełnienie obowiązk&oacute;w prawnych ciążących na Usługodawcy. Podanie danych określonych jako wymagane w formularzu odstąpienia od umowy jest niezbędne do skorzystania z tego prawa. Dane przetwarzane będą przez czas niezbędny dla wypełnienia obowiązk&oacute;w prawnych ciążących na Usługodawcy, a p&oacute;źniej mogą być przechowywane przez okres przedawnienia roszczeń przysługujących Usługodawcy i w stosunku do niego.</li>
+        </ol>
+        <h4 data-fontsize="13" data-lineheight="19.5px"><strong>&sect;9. Reklamacja z tytułu świadczonej Usługi</strong></h4>
+        <ol>
+          <li>Reklamację z tytułu świadczonej Usługi należy kierować do Usługodawcy w formie pisemnej lub za pośrednictwem poczty elektronicznej do Biura Obsługi Klienta.</li>
+          <li>W reklamacji Użytkownik powinien podać swoje imię i nazwisko (nazwę), adres do korespondencji oraz określić przedmiot reklamacji.</li>
+          <li>Usługodawca w terminie 14 dni od chwili otrzymania reklamacji ustosunkuje się do jej treści.</li>
+          <li>Dane przetwarzane będą w celu rozpatrzenia reklamacji. Podstawą prawną przetwarzania danych jest wypełnienie obowiązk&oacute;w prawnych ciążących na Usługodawcy. Podanie danych jest dobrowolne, jednakże podanie danych określonych dla zgłoszenia reklamacyjnego jako wymagane jest niezbędne do jego złożenia (bez podania tych danych nie będzie możliwe złożenie reklamacji). Dane przetwarzane będą przez czas niezbędny dla rozpatrzenia zgłoszenia reklamacyjnego, a p&oacute;źniej mogą być przechowywane przez okres przedawnienia roszczeń przysługujących Usługodawcy i w stosunku do niego.</li>
+        </ol>
+        <h4 data-fontsize="13" data-lineheight="19.5px"><strong>&sect;10. Profile Usługodawcy w serwisach społecznościowych</strong></h4>
+        <ol>
+          <li>Usługodawca prowadzi profile w serwisach społecznościowych, przeznaczone do publikowania informacji o Usługodawcy, oferowanej przez niego Usłudze, bądź prowadzonych przez niego akcjach promocyjnych. Niekt&oacute;re serwisy dopuszczają ponadto możliwość publikowania treści lub prowadzenia innych form aktywności przez odbiorcę lub obserwatora profilu. Informacja o prowadzonych przez Usługodawcę profilach dostępna jest na stronie gł&oacute;wnej Serwisu.</li>
+          <li>Aby zostać odbiorcą lub obserwatorem profilu Usługodawcy, publikować własne treści, bądź prowadzić inne przewidziane przez właściwy serwis formy aktywności, należy posiadać konto w tym serwisie oraz wykonać czynności techniczne, zgodnie z zasadami funkcjonowania tego serwisu. Usługa świadczona jest bezpłatnie przez czas nieokreślony. Odbiorca lub obserwator może zrezygnować z Usługi w każdym czasie (wypowiedzenie umowy bez zachowana okresu wypowiedzenia). Rezygnacji z usługi należy dokonać w oparciu o czynności techniczne, zgodnie z zasadami funkcjonowania tego serwisu.</li>
+          <li>Odbiorca lub obserwator profilu Usługodawcy zobowiązany jest powstrzymać się od czynności niezgodnych z powszechnie obowiązującymi przepisami prawa, w szczeg&oacute;lności od dostarczania treści o charakterze bezprawnym.</li>
+          <li>Podanie danych jest dobrowolne, jednakże podanie danych, w zakresie wymaganym przez właściwy serwis społecznościowy, jest niezbędne dla korzystania z Usługi (bez podania tych danych nie będzie możliwe korzystanie z usługi). Dane przetwarzane będą przez czas, w kt&oacute;rym odbiorca lub obserwator korzysta z Usługi, przy czym treści lub inne formy aktywności, kt&oacute;re zostaną przez odbiorcę lub obserwatora zamieszczone na profilu Usługodawcy, publikowane będą do czasu usunięcia jego profilu lub bloga, bądź usunięcia tych treści lub aktywności.</li>
+          <li>Pozostałe warunki korzystania z właściwego serwisu społecznościowego lub bloga określone są w regulaminie tego serwisu.</li>
+        </ol>
+        <h4 data-fontsize="13" data-lineheight="19.5px"><strong>&sect;11. Ochrona danych osobowych</strong></h4>
+        <ol>
+          <li>Administratorem danych jest Usługodawca.</li>
+          <li>W zakresie dozwolonym przez powszechnie obowiązujące przepisy prawa odbiorcą danych może być podmiot świadczący na rzecz Usługodawcy usługi związane z jego działalnością, np. podmiot świadczący usługi teleinformatyczne, operator platformy Serwisu, operator systemu płatności obsługujący wybraną przez Klienta formę płatności, operator punktu wypożyczalni, w kt&oacute;rym Klient odbiera pojazd, podmiot świadczący usługi pocztowe lub kurierskie, podmiot świadczący usługi biurowe, księgowe, marketingowe lub prawne.</li>
+          <li>Jeżeli podstawą przetwarzania danych jest zgoda, osobie kt&oacute;rej dane dotyczą przysługuje prawo cofnięcia zgody na przetwarzania danych osobowych w dowolnym momencie, bez wpływu na zgodność z prawem przetwarzania, kt&oacute;rego dokonano na podstawie zgody przed jej cofnięciem.</li>
+          <li>W sytuacjach przewidzianych prawem, osobie kt&oacute;rej dane dotyczą przysługuje prawo żądania od Usługodawcy dostępu do dotyczących jej danych osobowych, ich sprostowania, usunięcia lub ograniczenia przetwarzania, a także prawo do przenoszenia danych oraz prawo wniesienia skargi do organu nadzorczego.</li>
+          <li>Żądania w zakresie przetwarzania danych należy kierować do Usługodawcy w formie pisemnej lub za pośrednictwem poczty elektronicznej do Biura Obsługi Klienta.</li>
+          <li>Informacje o celu, podstawie prawnej, wymogu podania oraz czasie przetwarzania danych określone są w punktach dotyczących przetwarzania określonych kategorii danych.</li>
+        </ol>
+        <h4 data-fontsize="13" data-lineheight="19.5px"><strong>&sect;12. Pozasądowe sposoby rozpatrywania reklamacji i dochodzenia roszczeń (dotyczy Konsumenta)</strong></h4>
+        <ol>
+          <li>Konsument może skorzystać z pozasądowych sposob&oacute;w rozpatrywania reklamacji i dochodzenia roszczeń.</li>
+          <li>Konsument może zwr&oacute;cić się do właściwego wojew&oacute;dzkiego inspektora Inspekcji Handlowej z wnioskiem o wszczęcie postępowania mediacyjnego w sprawie polubownego zakończenia sporu między Konsumentem, a Usługodawcą zgodnie z art. 36 ustawy z dnia 15 grudnia 2000r. o Inspekcji Handlowej (Dz. U. z 2001r. Nr 4, poz. 25, z p&oacute;źn zm.).</li>
+          <li>Konsument może także zwr&oacute;cić się o rozstrzygnięcie sporu wynikłego z zawartej umowy sprzedaży przez stały polubowny sąd konsumencki przy wojew&oacute;dzkim inspektorze Inspekcji Handlowej, o kt&oacute;rym mowa w art. 37 ustawy o Inspekcji Handlowej.</li>
+          <li>Szczeg&oacute;łowe informacje o pozasądowych sposobach rozpatrywania reklamacji i dochodzenia roszczeń dostępne są r&oacute;wnież w siedzibach oraz na stronach internetowych powiatowych (miejskich) rzecznik&oacute;w konsument&oacute;w, organizacji społecznych, do kt&oacute;rych zadań statutowych należy ochrona konsument&oacute;w oraz Wojew&oacute;dzkich Inspektorat&oacute;w Inspekcji Handlowej</li>
+        </ol>
+        <h4 data-fontsize="13" data-lineheight="19.5px"><strong>&sect;13. Postanowienia końcowe</strong></h4>
+        <ol>
+          <li>Wszelkie postanowienia Regulaminu należy odczytywać i interpretować w zakresie dozwolonym przez powszechnie obowiązujące przepisy prawa. W szczeg&oacute;lności postanowienia Regulaminu nie naruszają uprawień przyznanych Konsumentowi.</li>
+          <li>W sprawach nieuregulowanych w Regulaminie zastosowanie znajdują odpowiednie przepisy powszechnie obowiązującego prawa, w szczeg&oacute;lności ustawy z dnia 23 kwietnia 1964r. Kodeks cywilny (Dz. U. z 1964r. Nr 16, poz. 93, z p&oacute;źn. zm.), ustawy z dnia 30 maja 2014r. o prawach konsumenta (Dz. U. z 2014r. poz. 827, z p&oacute;źn. zm.), oraz ustawy z dnia 18 lipca 2002r. o świadczeniu usług drogą elektroniczną (Dz. U. z 2002r. Nr 144, poz. 1204, z p&oacute;źn. zm.).</li>
+          <li>Usługodawca może zmienić Regulamin z następujących przyczyn:
+            <ol>
+              <li>konieczność dostosowania Regulaminu do powszechnie obowiązujących przepis&oacute;w prawa, orzeczenia sądu lub organu administracji publicznej;</li>
+              <li>konieczność usunięcia błęd&oacute;w lub omyłek pisarskich w Regulaminie;</li>
+              <li>zmiana danych teleadresowych, adres&oacute;w poczty elektronicznej, nazw lub numer&oacute;w identyfikacyjnych użytych w Regulaminie;</li>
+              <li>zmiana funkcjonalności Serwisu;</li>
+              <li>zmiana zakresu lub warunk&oacute;w świadczenia Usług, w tym Usług świadczonych drogą elektroniczną;</li>
+              <li>zmiana warunk&oacute;w technicznych korzystania z Serwisu lub świadczonych Usług.</li>
+            </ol>
+          </li>
+          <li>Wszelkie zmiany Regulaminu, po spełnieniu pozostałych warunk&oacute;w przewidzianych prawem, wchodzą w życie po upływie 14 dni od daty ich opublikowania w Serwisie. Jednocześnie, z co najmniej 14-dniowym uprzedzeniem, Usługodawca powiadomi Użytkownika posiadającego zarejestrowane konto lub zamawiającego Newsletter o zmianie Regulaminu.</li>
+          <li>Użytkownik, kt&oacute;ry nie zgadza się ze zmianami może w każdym czasie bezpłatnie zrezygnować z Usługi (także po wejściu w życie zmian), w szczeg&oacute;lności usunąć konto w Serwisie lub zrezygnować z otrzymywania Newslettera (wypowiedzenie umowy ze skutkiem natychmiastowym).</li>
+          <li>Zmiany Regulaminu nie mają zastosowania do rezerwacji wynajmu pojazdu dokonanych w brzmieniu obowiązującym przed wejściem w życie tych zmian. Takie rezerwacje realizowane będą na warunkach Regulaminu w brzmieniu obowiązującym w czasie dokonania rezerwacji.</li>
+          <li>Regulamin obowiązuje od dnia 01 września 2020 r.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+  {% include 'base/fixed-contact-button.html' %}
+{% endblock %}

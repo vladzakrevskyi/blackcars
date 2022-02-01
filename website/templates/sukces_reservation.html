@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+
+{% block head %}
+{% endblock %}
+{% block title %} {% trans 'BlackCars - Wynajem samochodów klasy premium' %} {% endblock %}
+{% block content %}
+  <section class="section-grey success_reservation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2>{% trans 'Dziękujemy za dokonanie rezerwacji w naszej wypożyczalnie.' %}</h2>
+          <p>{% trans 'Wysłaliśmy potwierdzenia rezerwacji na wskazany przez Państwo adres mailowy.' %}</p>
+          <p>{% trans 'Wkrótce skontaktujemy się z Państwem w celu potwierdzenia dostępności auta.' %}</p>
+          {% if payment_method == 'Placę kartą - Niska Kaucja' %}
+            <p>{% trans 'Wybrałeś sposób zapłaty kartą. Upewnij się, że masz środki na karcie. W ciągu 60 min. obciążymy Państwa kartę.' %}</p>
+          {% else %}
+            <p>{% trans 'Wybrałeś sposób zapłaty przy odbiorze auta. Zapłacisz wygodnie kartą płatniczą Visa, Mastercard oraz gotówką.' %}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+  {% include 'base/fixed-contact-button.html' %}
+{% endblock %}

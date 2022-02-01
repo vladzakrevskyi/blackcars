@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block head %}
+   <meta name="description" content="Chcesz skontaktować się z firmą BlackCars.pl? Zapraszamy do odwiedzenia tej zakładki.">
+{% endblock %}
+{% block title %} {% trans 'BlackCars Warszawa - Skontaktuj się z nami' %} {% endblock %}
+{% block content %}
+
+  <section class="section-grey">
+    <div class="container contacts">
+      <div class="col-12">
+        <h1 class="text-left">{% trans 'Kontakty' %}</h1>
+        <div class="section-heading-line-left" style="width: 85px"></div>
+      </div>
+      <div class="row contact_information">
+        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-sx-12 info_contact">
+          <span style="display: flex; flex-direction: row"><img loading="lazy" style="height: 28px;
+    margin-top: 3px;" src="{% static 'images/icon_local.png' %}">
+          <p><strong>{% trans 'Odbiór pojazdów:' %}</strong> {% trans 'Bokserska 64, lok. 124, 02-690 Warszawa' %}</p></span>
+          <p><img loading="lazy" src="{% static 'images/icon_tel.png' %}"><a href="tel: +48 720 889 788">+48 720 889 788</a>
+          </p>
+          <p><img loading="lazy" src="{% static 'images/icon_mail.png' %}"><a href="mailto: office@blackcars.pl">office@blackcars.pl</a>
+          </p>
+          <p class="download_contact"><span><i class="fa fa-file-pdf-o"></i></span>
+            <span class="download_text">{% trans 'Dane rejestrowe spółki właściciela marki blackcars.pl zobaczysz, klikając' %}
+              <a href="{% static 'files/Dane_rejestrowe.pdf' %}" target="_blank">{% trans 'pobierz' %}</a> {% trans 'dane rejestrowe.' %}</span></p>
+          <div class="contact_social">
+            <p>{% trans 'Polub nas i bądź na bieżąco z naszymi najnowszymi informacjami i promocjami:' %}</p>
+            <div style="display: flex; flex-direction: row">
+              <div class="contact_social_media">
+                <a href="https://www.instagram.com/blackcars.pl/" target="_blank">
+                  <img loading="lazy" src="{% static 'images/ig.png' %}" style="justify-content: center">
+                  <p>@blackcars.pl</p>
+                </a>
+              </div>
+              <div class="contact_social_media">
+                <a href="https://www.facebook.com/blackcarspl/" target="_blank">
+                  <img loading="lazy" src="{% static 'images/fb.png' %}">
+                  <p>@blackcarspl</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-sx-12">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1259.2939465324532!2d20.99192140400662!3d52.172718815727976!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47193367be7a0ec3%3A0x69593d5f187381d5!2sBlackCars.pl%20-%20Wynajem%20Aut%20Klasy%20Premium!5e0!3m2!1sen!2spl!4v1631533916221!5m2!1sen!2spl" width="100%" height="340" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="row about_us_section">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-sx-12 about_us_section_img">
+          <img loading="lazy" src="{% static 'images/Rectangle112.jpg' %}">
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-sx-12 about_us_text_section">
+          <h1 class="title-left-line" style="font-size: 25px">{% trans 'Poznaj nas' %}</h1>
+          <p class="first_text">{% trans 'Samochody to dla wielu osób życiowa pasja, która nie mija wraz z wiekem – wręcz przeciwnie – im dłużej z nich korzystamy, tym wyższe mamy wymagania dotyczące użytkowanego pojazdu. Jeśli jesteś pasjonatem luksusowych samochodów, mamy dla Ciebie doskonałą wiadomość. Nasza wypożyczalnia aut premium Warszawa ma do zaoferowania samochody premium najlepszych marek, takich jak BMW, Mercedes-Benz, Audi lub Lexus, które można wypożyczyć zarówno długo, jak i krótkoterminowo.' %}</p>
+          <p class="second_text">{% trans 'Brzmi dobrze? Sprawdź naszą ofertę wynajem samochodów premium Warszawa i zafunduj sobie niezapomniane wrażenia, jakie płyną z użytkowania aut dostępnych w naszej flocie. Nie czekaj i zapewnij sobie ekskluzywne doznania w przystępnej cenie.' %}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% include 'base/fixed-contact-button.html' %}
+{% endblock %}

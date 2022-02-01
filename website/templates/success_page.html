@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+{% load i18n %}
+
+{% block head %}
+{% endblock %}
+{% block title %} {% trans 'BlackCars - Wynajem samochodów klasy premium' %} {% endblock %}
+{% block content %}
+  <section class="section-grey sukcess_reservation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2>{% trans 'Wiadomość została wysłana' %}</h2>
+          <h3>{% trans 'Dziękujemy za Twój kontakt. Skontaktujemy się z Tobą w najbliższym czasie.' %}</h3>
+          <p><a href="{% url 'home' %}"><button class="button_with_fill">{% trans 'Strona głowna' %}</button></a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% include 'base/fixed-contact-button.html' %}
+{% endblock %}
